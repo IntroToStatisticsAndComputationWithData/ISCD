@@ -21,18 +21,7 @@ jobs:
           ref: main
           path: main
           fetch-depth: 0
-          run: |
-            git pull
-            git config user.name BikramHalder
-            git config user.email ${{ secrets.USER_EMAIL }}
-            git add .
-            git commit -m "Pull content"
-            git push
-      - name: Checkout repo
-        uses: actions/checkout@master
-        with:
-          ref: main
-
+      
       - name: Setup R
         uses: r-lib/actions/setup-r@master
 
