@@ -9,6 +9,8 @@ permissions:
   contents: write
 jobs:
   build:
+  env:
+      GITHUB_PAT: ${{ secrets.BUILD_KEY }}
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout the repo
@@ -26,11 +28,6 @@ jobs:
             git add .
             git commit -m "Pull content"
             git push
-  build:
-    env:
-      GITHUB_PAT: ${{ secrets.BUILD_KEY }}
-    runs-on: ubuntu-latest
-    steps:
       - name: Checkout repo
         uses: actions/checkout@master
         with:
