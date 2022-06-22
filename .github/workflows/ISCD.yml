@@ -8,9 +8,7 @@ name: Pull Content and build book
 # permissions:
 #   contents: write
 jobs:
-  build:
-  env:
-      GITHUB_PAT: ${{ secrets.BUILD_KEY }}
+  checkout:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout the repo
@@ -21,7 +19,10 @@ jobs:
           ref: main
           path: main
           fetch-depth: 0
-      
+  build:
+  env:
+      GITHUB_PAT: ${{ secrets.BUILD_KEY }}
+    runs-on: ubuntu-latest
       - name: Setup R
         uses: r-lib/actions/setup-r@master
 
