@@ -4,9 +4,7 @@ on:
   # schedule:
   #   - cron: '0 18 * * 6'
 
-name: Pull Content and build book
-# permissions:
-#   contents: write
+name: Pull-Content-and-build-book
 jobs:
   checkout:
     runs-on: ubuntu-latest
