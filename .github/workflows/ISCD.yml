@@ -6,7 +6,7 @@ on:
 
 name: Pull Content
 jobs:
-  checkout:
+  build:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout the repo
