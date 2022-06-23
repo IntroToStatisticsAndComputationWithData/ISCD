@@ -6,7 +6,7 @@ on:
 
 name: Pull-Content-and-build-book
 jobs:
-  checkout:
+  build:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout the repo
@@ -15,12 +15,8 @@ jobs:
           repository: ${{ secrets.TARGET_REPO }}
           ssh-key: ${{ secrets.PULL_KEY }}
           ref: main
-          path: main
           fetch-depth: 0
-  build:
-  env:
-      GITHUB_PAT: ${{ secrets.BUILD_KEY }}
-    runs-on: ubuntu-latest
+          
       - name: Setup R
         uses: r-lib/actions/setup-r@master
 
@@ -57,6 +53,7 @@ jobs:
       - name: Deploy to github-pages
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
+          ssh-key: ${{ secrets.BUILD_KEY }}
           branch: gh-pages # The branch the action should deploy to.
           folder: _book # The folder the action should deploy.
 
