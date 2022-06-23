@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.5 ggplot2 data visualization | Introduction to Statistics and Computation with Data</title>
+  <meta name="description" content="1.5 ggplot2 data visualization | Introduction to Statistics and Computation with Data" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.5 ggplot2 data visualization | Introduction to Statistics and Computation with Data" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="BikramHalder/ISCD" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.5 ggplot2 data visualization | Introduction to Statistics and Computation with Data" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="1.4-playing-with-datasets-in-r.html"/>
+<link rel="next" href="2-review-of-basic-probability.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction to Statistics and Computation with Data</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors"><i class="fa fa-check"></i>Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#chapters"><i class="fa fa-check"></i>Chapters</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-r-basics-and-exploratory-data-analysis.html"><a href="1-r-basics-and-exploratory-data-analysis.html"><i class="fa fa-check"></i><b>1</b> R basics and Exploratory data analysis</a><ul>
+<li class="chapter" data-level="1.1" data-path="1.1-r-lang.html"><a href="1.1-r-lang.html"><i class="fa fa-check"></i><b>1.1</b> R</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="1.1-r-lang.html"><a href="1.1-r-lang.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="1.1-r-lang.html"><a href="1.1-r-lang.html#rstudio"><i class="fa fa-check"></i><b>1.1.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="1.1-r-lang.html"><a href="1.1-r-lang.html#r-packages"><i class="fa fa-check"></i><b>1.1.3</b> R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="1.2-r-basics.html"><a href="1.2-r-basics.html"><i class="fa fa-check"></i><b>1.2</b> R basics</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="1.2-r-basics.html"><a href="1.2-r-basics.html#the-c-function"><i class="fa fa-check"></i><b>1.2.1</b> The <code>c()</code> function</a></li>
+<li class="chapter" data-level="1.2.2" data-path="1.2-r-basics.html"><a href="1.2-r-basics.html#inbuilt-functions"><i class="fa fa-check"></i><b>1.2.2</b> Inbuilt functions</a></li>
+<li class="chapter" data-level="1.2.3" data-path="1.2-r-basics.html"><a href="1.2-r-basics.html#slicing-a-vector"><i class="fa fa-check"></i><b>1.2.3</b> Slicing a vector</a></li>
+<li class="chapter" data-level="1.2.4" data-path="1.2-r-basics.html"><a href="1.2-r-basics.html#creating-a-sequence-as-vectors"><i class="fa fa-check"></i><b>1.2.4</b> Creating a sequence as vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="1.3-data.html"><a href="1.3-data.html"><i class="fa fa-check"></i><b>1.3</b> Data</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="1.3-data.html"><a href="1.3-data.html#types-of-data"><i class="fa fa-check"></i><b>1.3.1</b> Types of Data</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1.3-data.html"><a href="1.3-data.html#discrete-numeric-data"><i class="fa fa-check"></i><b>1.3.2</b> Discrete Numeric Data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="1.4-playing-with-datasets-in-r.html"><a href="1.4-playing-with-datasets-in-r.html"><i class="fa fa-check"></i><b>1.4</b> Playing with Datasets in R</a></li>
+<li class="chapter" data-level="1.5" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html"><i class="fa fa-check"></i><b>1.5</b> <code>ggplot2</code> data visualization</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#mpg-dataset"><i class="fa fa-check"></i><b>1.5.1</b> <code>mpg</code> dataset</a></li>
+<li class="chapter" data-level="1.5.2" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#our-first-ggplot"><i class="fa fa-check"></i><b>1.5.2</b> Our first ggplot</a></li>
+<li class="chapter" data-level="1.5.3" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#template-for-graphing-in-ggplot2"><i class="fa fa-check"></i><b>1.5.3</b> Template for graphing in <code>ggplot2</code></a></li>
+<li class="chapter" data-level="" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#references"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-review-of-basic-probability.html"><a href="2-review-of-basic-probability.html"><i class="fa fa-check"></i><b>2</b> Review of Basic probability</a></li>
+<li class="chapter" data-level="3" data-path="3-statistical-estimation.html"><a href="3-statistical-estimation.html"><i class="fa fa-check"></i><b>3</b> Statistical Estimation</a></li>
+<li class="chapter" data-level="4" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="5" data-path="5-resampling-methods-jackknife-and-bootstrap.html"><a href="5-resampling-methods-jackknife-and-bootstrap.html"><i class="fa fa-check"></i><b>5</b> Resampling Methods: Jackknife and Bootstrap</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/BikramHalder/ISCD" target="blank">View Source</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Statistics and Computation with Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+	<link href="css/big-image.css" rel="stylesheet" />
+</head>
+<div class="book-image-container">
+	<img class="book-image" src="images/pexels-lukas-590022.jpg" />
+</div>
+<div id="ggplot2-data-visualization" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.5</span> <code>ggplot2</code> data visualization<a href="1.5-ggplot2-data-visualization.html#ggplot2-data-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This part will give you an understanding of data visualization using <code>ggplot2</code>. R does have many packages/methods to make graphs, but <code>ggplot2</code> is one of the most versatile one. It implements <strong>grammar of graphics</strong>, a powerful tool to describe and build the components of graphs concisely. If you are curious and want to get in-depth understanding of <strong>grammar of graphics</strong> in <code>ggplot2</code> you can read <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">The Layered Grammar of Graphics by Hadley Wickham</a>.</p>
+<p>First install <code>tidyverse</code> which includes the <code>ggplot2</code> package and then add to the current workspace.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="1.5-ggplot2-data-visualization.html#cb47-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb47-2"><a href="1.5-ggplot2-data-visualization.html#cb47-2"></a><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<p>A package needed to be installed once, but it needs to be (re)loaded in evry new session.</p>
+<div id="mpg-dataset" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.5.1</span> <code>mpg</code> dataset<a href="1.5-ggplot2-data-visualization.html#mpg-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>mpg</code> is a dataset in <code>tidyverse</code>, which contains observations collected by US Environment Protection Agency on 38 models of cars.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="1.5-ggplot2-data-visualization.html#cb48-1"></a>mpg</span></code></pre></div>
+<pre><code>## # A tibble: 234 × 11
+##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…
+##  2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…
+##  3 audi         a4           2    2008     4 manu… f        20    31 p     comp…
+##  4 audi         a4           2    2008     4 auto… f        21    30 p     comp…
+##  5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…
+##  6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…
+##  7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…
+##  8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…
+##  9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
+## 10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
+## # … with 224 more rows</code></pre>
+</div>
+<div id="our-first-ggplot" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.5.2</span> Our first ggplot<a href="1.5-ggplot2-data-visualization.html#our-first-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For plotting the relationship between <code>displ</code> and <code>hwy</code> variable in <code>mpg</code> dataset, run this code (It puts the variables in x and y axis respectively):</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="1.5-ggplot2-data-visualization.html#cb50-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
+<span id="cb50-2"><a href="1.5-ggplot2-data-visualization.html#cb50-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy))</span></code></pre></div>
+<p><img src="01-r_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p>The plots shows <em>negative relationship</em> between Engine Size(<code>displ</code>) and Fuel Efficiency(<code>hwy</code>).</p>
+<p>Begins with a function <code>ggplot()</code>-creates a coordinate system that you can add addlayers to. The first arugment is the data set to use <code>ggplot(data = mpg)</code> creates an empty graph. Add layers to <code>ggplot()</code>- the function <code>geom_point()</code> adds a layer of points to your plot. Each geom function takes a mapping argument. The mapping argument is always paired with <code>aes()</code></p>
+</div>
+<div id="template-for-graphing-in-ggplot2" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.5.3</span> Template for graphing in <code>ggplot2</code><a href="1.5-ggplot2-data-visualization.html#template-for-graphing-in-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="1.5-ggplot2-data-visualization.html#cb51-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="op">&lt;</span>DATA<span class="op">&gt;</span>) <span class="op">+</span><span class="st">  </span><span class="co"># nolint</span></span>
+<span id="cb51-2"><a href="1.5-ggplot2-data-visualization.html#cb51-2"></a><span class="st"> </span><span class="kw">GEOM_FUNCTION</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="op">&lt;</span>MAPPINGS<span class="op">&gt;</span>))</span></code></pre></div>
+<p>We will learn in the later subsections how to complete and extend this basic template to make different types of graphs.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="1.5-ggplot2-data-visualization.html#cb52-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
+<span id="cb52-2"><a href="1.5-ggplot2-data-visualization.html#cb52-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">colour =</span> class))</span></code></pre></div>
+<p><img src="01-r_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p>To add colour for distinct values of <code>class</code> variable, we can add an <code>colour = class</code> by mapping it to an aesthetic.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="1.5-ggplot2-data-visualization.html#cb53-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
+<span id="cb53-2"><a href="1.5-ggplot2-data-visualization.html#cb53-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">colour =</span> class)) <span class="op">+</span></span>
+<span id="cb53-3"><a href="1.5-ggplot2-data-visualization.html#cb53-3"></a><span class="st">  </span><span class="kw">scale_colour_viridis_d</span>(<span class="dt">option =</span> <span class="st">&quot;plasma&quot;</span>) <span class="op">+</span></span>
+<span id="cb53-4"><a href="1.5-ggplot2-data-visualization.html#cb53-4"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>class, <span class="dt">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="01-r_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><code>facet_wrap</code> splits plot by a single variable into subplots that each display one subset of the data.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="1.5-ggplot2-data-visualization.html#cb54-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
+<span id="cb54-2"><a href="1.5-ggplot2-data-visualization.html#cb54-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">colour =</span> class)) <span class="op">+</span></span>
+<span id="cb54-3"><a href="1.5-ggplot2-data-visualization.html#cb54-3"></a><span class="st">  </span><span class="kw">scale_colour_viridis_d</span>(<span class="dt">option =</span> <span class="st">&quot;plasma&quot;</span>) <span class="op">+</span></span>
+<span id="cb54-4"><a href="1.5-ggplot2-data-visualization.html#cb54-4"></a><span class="st">  </span><span class="kw">facet_grid</span>(drv<span class="op">~</span>cyl)</span></code></pre></div>
+<p><img src="01-r_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p><code>facet_grid</code> splits plot by a combination of two variables into subplots that each display one subset of the data.</p>
+</div>
+<div id="references" class="section level3 unnumbered hasAnchor">
+<h3>References<a href="1.5-ggplot2-data-visualization.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf">Journal of Computational and Graphical Statistics,5:3, pp. 299-314. 1996.</a></p>
+
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="1.4-playing-with-datasets-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2-review-of-basic-probability.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/BikramHalder/ISCD/edit/main/01-r.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ISCD.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
