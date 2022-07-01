@@ -1,7 +1,7 @@
 @import url("./fonts.css");
 
 html {
-	scroll-behavior: smooth;
+	scroll-behavior: smooth !important;
 }
 
 body {
@@ -32,12 +32,12 @@ pre code {
 	white-space: inherit;
 }
 
-p > code {
+p>code {
 	padding-left: 0;
 	padding-right: 0;
 }
 
-pre > code {
+pre>code {
 	border-radius: 0 0 6px 6px;
 }
 
@@ -47,18 +47,21 @@ p.flushright {
 
 code {
 	border-radius: 10px;
-	font-family: "Monaco for Powerline", "Fira Code", monospace;
 }
 
-div > .sourceCode {
-	border-radius: 6px 6px 0 0;
+div>.sourceCode {
+	border-radius: 6px;
 }
 
-blockquote > p:last-child {
+.r {
+	font-family: Monaco, "Monaco for Powerline", "Fira Code", monospace;
+}
+
+blockquote>p:last-child {
 	text-align: right;
 }
 
-blockquote > p:first-child {
+blockquote>p:first-child {
 	text-align: inherit;
 }
 
@@ -93,6 +96,6 @@ h1.title {
 	font-weight: 600;
 }
 
-.book-body > p > img {
+.book-body>p>img {
 	align-self: center;
 }

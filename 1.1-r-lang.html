@@ -4,22 +4,24 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 R | Introduction to Statistics and Computation with Data</title>
-  <meta name="description" content="1.1 R | Introduction to Statistics and Computation with Data" />
+  <title>1.1 Introduction | Introduction to Statistics and Computation with Data</title>
+  <meta name="description" content="1.1 Introduction | Introduction to Statistics and Computation with Data" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 R | Introduction to Statistics and Computation with Data" />
+  <meta property="og:title" content="1.1 Introduction | Introduction to Statistics and Computation with Data" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="BikramHalder/ISCD" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 R | Introduction to Statistics and Computation with Data" />
+  <meta name="twitter:title" content="1.1 Introduction | Introduction to Statistics and Computation with Data" />
   
   
   
 
+<meta name="author" content="Siva Athreya" />
+<meta name="author" content="Bikram Halder" />
 
 
 
@@ -29,7 +31,7 @@
   
   
 <link rel="prev" href="1-r-basics-and-exploratory-data-analysis.html"/>
-<link rel="next" href="1.2-data.html"/>
+<link rel="next" href="1.2-ggplot2-data-visualization.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -140,36 +142,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#chapters"><i class="fa fa-check"></i>Chapters</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="1-r-basics-and-exploratory-data-analysis.html"><a href="1-r-basics-and-exploratory-data-analysis.html"><i class="fa fa-check"></i><b>1</b> R basics and Exploratory data analysis</a><ul>
-<li class="chapter" data-level="1.1" data-path="1.1-r-lang.html"><a href="1.1-r-lang.html"><i class="fa fa-check"></i><b>1.1</b> R</a><ul>
+<li class="chapter" data-level="1.1" data-path="1.1-r-lang.html"><a href="1.1-r-lang.html"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="1.1-r-lang.html"><a href="1.1-r-lang.html#installation-and-setup"><i class="fa fa-check"></i><b>1.1.1</b> Installation and setup</a></li>
 <li class="chapter" data-level="1.1.2" data-path="1.1-r-lang.html"><a href="1.1-r-lang.html#queries-regarding-operating-r-and-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> Queries regarding operating R and RStudio</a></li>
+<li class="chapter" data-level="" data-path="1.1-r-lang.html"><a href="1.1-r-lang.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="1.2-data.html"><a href="1.2-data.html"><i class="fa fa-check"></i><b>1.2</b> Data</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="1.2-data.html"><a href="1.2-data.html#types-of-data"><i class="fa fa-check"></i><b>1.2.1</b> Types of Data</a></li>
-<li class="chapter" data-level="1.2.2" data-path="1.2-data.html"><a href="1.2-data.html#discrete-numeric-data"><i class="fa fa-check"></i><b>1.2.2</b> Discrete Numeric Data</a></li>
-<li class="chapter" data-level="1.2.3" data-path="1.2-data.html"><a href="1.2-data.html#playing-with-datasets-in-r"><i class="fa fa-check"></i><b>1.2.3</b> Playing with Datasets in R</a></li>
-<li class="chapter" data-level="1.2.4" data-path="1.2-data.html"><a href="1.2-data.html#data-frames-in-r"><i class="fa fa-check"></i><b>1.2.4</b> Data frames in R</a></li>
-<li class="chapter" data-level="1.2.5" data-path="1.2-data.html"><a href="1.2-data.html#the-tidyverse-package"><i class="fa fa-check"></i><b>1.2.5</b> The <code>tidyverse</code>-package</a></li>
-<li class="chapter" data-level="1.2.6" data-path="1.2-data.html"><a href="1.2-data.html#reading-data-frames-into-r"><i class="fa fa-check"></i><b>1.2.6</b> Reading Data frames into R</a></li>
-<li class="chapter" data-level="1.2.7" data-path="1.2-data.html"><a href="1.2-data.html#generating-random-data-sets-in-r"><i class="fa fa-check"></i><b>1.2.7</b> Generating Random Data sets in R</a></li>
-<li class="chapter" data-level="1.2.8" data-path="1.2-data.html"><a href="1.2-data.html#working-with-dplyr-package"><i class="fa fa-check"></i><b>1.2.8</b> Working With <code>dplyr</code>-package</a></li>
+<li class="chapter" data-level="1.2" data-path="1.2-ggplot2-data-visualization.html"><a href="1.2-ggplot2-data-visualization.html"><i class="fa fa-check"></i><b>1.2</b> <code>ggplot2</code> data visualization</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="1.2-ggplot2-data-visualization.html"><a href="1.2-ggplot2-data-visualization.html#basics"><i class="fa fa-check"></i><b>1.2.1</b> Basics</a></li>
+<li class="chapter" data-level="1.2.2" data-path="1.2-ggplot2-data-visualization.html"><a href="1.2-ggplot2-data-visualization.html#aesthetic-mappings-in-ggplot2"><i class="fa fa-check"></i><b>1.2.2</b> Aesthetic mappings in <code>ggplot2</code></a></li>
+<li class="chapter" data-level="1.2.3" data-path="1.2-ggplot2-data-visualization.html"><a href="1.2-ggplot2-data-visualization.html#facets-wrap-and-grid."><i class="fa fa-check"></i><b>1.2.3</b> Facets (wrap and grid).</a></li>
+<li class="chapter" data-level="1.2.4" data-path="1.2-ggplot2-data-visualization.html"><a href="1.2-ggplot2-data-visualization.html#geometric-objects"><i class="fa fa-check"></i><b>1.2.4</b> Geometric objects</a></li>
+<li class="chapter" data-level="1.2.5" data-path="1.2-ggplot2-data-visualization.html"><a href="1.2-ggplot2-data-visualization.html#statistical-transformations"><i class="fa fa-check"></i><b>1.2.5</b> Statistical transformations</a></li>
+<li class="chapter" data-level="1.2.6" data-path="1.2-ggplot2-data-visualization.html"><a href="1.2-ggplot2-data-visualization.html#position-adjustments"><i class="fa fa-check"></i><b>1.2.6</b> Position adjustments</a></li>
+<li class="chapter" data-level="1.2.7" data-path="1.2-ggplot2-data-visualization.html"><a href="1.2-ggplot2-data-visualization.html#coordinate-systems"><i class="fa fa-check"></i><b>1.2.7</b> Coordinate systems</a></li>
+<li class="chapter" data-level="1.2.8" data-path="1.2-ggplot2-data-visualization.html"><a href="1.2-ggplot2-data-visualization.html#the-layered-grammar-of-graphics"><i class="fa fa-check"></i><b>1.2.8</b> The layered grammar of graphics</a></li>
+<li class="chapter" data-level="" data-path="1.2-ggplot2-data-visualization.html"><a href="1.2-ggplot2-data-visualization.html#exercises-1"><i class="fa fa-check"></i>Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="1.3-date-and-time-in-r.html"><a href="1.3-date-and-time-in-r.html"><i class="fa fa-check"></i><b>1.3</b> Date and Time in R</a></li>
-<li class="chapter" data-level="1.4" data-path="1.4-factors-and-levels-in-r.html"><a href="1.4-factors-and-levels-in-r.html"><i class="fa fa-check"></i><b>1.4</b> Factors and Levels in R</a></li>
-<li class="chapter" data-level="1.5" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html"><i class="fa fa-check"></i><b>1.5</b> <code>ggplot2</code> data visualization</a><ul>
-<li class="chapter" data-level="1.5.1" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#basics"><i class="fa fa-check"></i><b>1.5.1</b> Basics</a></li>
-<li class="chapter" data-level="1.5.2" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#aesthetic-mappings-in-ggplot2"><i class="fa fa-check"></i><b>1.5.2</b> Aesthetic mappings in <code>ggplot2</code></a></li>
-<li class="chapter" data-level="1.5.3" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#facets-wrap-and-grid."><i class="fa fa-check"></i><b>1.5.3</b> Facets (wrap and grid).</a></li>
-<li class="chapter" data-level="1.5.4" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#geometric-objects"><i class="fa fa-check"></i><b>1.5.4</b> Geometric objects</a></li>
-<li class="chapter" data-level="1.5.5" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#statistical-transformations"><i class="fa fa-check"></i><b>1.5.5</b> Statistical transformations</a></li>
-<li class="chapter" data-level="1.5.6" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#position-adjustments"><i class="fa fa-check"></i><b>1.5.6</b> Position adjustments</a></li>
-<li class="chapter" data-level="1.5.7" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#coordinate-systems"><i class="fa fa-check"></i><b>1.5.7</b> Coordinate systems</a></li>
-<li class="chapter" data-level="1.5.8" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#the-layered-grammar-of-graphics"><i class="fa fa-check"></i><b>1.5.8</b> The layered grammar of graphics</a></li>
-<li class="chapter" data-level="" data-path="1.5-ggplot2-data-visualization.html"><a href="1.5-ggplot2-data-visualization.html#references"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="1.3" data-path="1.3-date-and-time-in-r.html"><a href="1.3-date-and-time-in-r.html"><i class="fa fa-check"></i><b>1.3</b> Date and Time in R</a><ul>
+<li class="chapter" data-level="" data-path="1.3-date-and-time-in-r.html"><a href="1.3-date-and-time-in-r.html#exercises-2"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="1.4-factors-and-levels-in-r.html"><a href="1.4-factors-and-levels-in-r.html"><i class="fa fa-check"></i><b>1.4</b> Factors and Levels in R</a><ul>
+<li class="chapter" data-level="" data-path="1.4-factors-and-levels-in-r.html"><a href="1.4-factors-and-levels-in-r.html#exercises-3"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="1.5-data.html"><a href="1.5-data.html"><i class="fa fa-check"></i><b>1.5</b> Data</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="1.5-data.html"><a href="1.5-data.html#types-of-data"><i class="fa fa-check"></i><b>1.5.1</b> Types of Data</a></li>
+<li class="chapter" data-level="1.5.2" data-path="1.5-data.html"><a href="1.5-data.html#discrete-numeric-data"><i class="fa fa-check"></i><b>1.5.2</b> Discrete Numeric Data</a></li>
+<li class="chapter" data-level="1.5.3" data-path="1.5-data.html"><a href="1.5-data.html#playing-with-datasets-in-r"><i class="fa fa-check"></i><b>1.5.3</b> Playing with Datasets in R</a></li>
+<li class="chapter" data-level="1.5.4" data-path="1.5-data.html"><a href="1.5-data.html#data-frames-in-r"><i class="fa fa-check"></i><b>1.5.4</b> Data frames in R</a></li>
+<li class="chapter" data-level="1.5.5" data-path="1.5-data.html"><a href="1.5-data.html#the-tidyverse-package"><i class="fa fa-check"></i><b>1.5.5</b> The <code>tidyverse</code>-package</a></li>
+<li class="chapter" data-level="1.5.6" data-path="1.5-data.html"><a href="1.5-data.html#reading-data-frames-into-r"><i class="fa fa-check"></i><b>1.5.6</b> Reading Data frames into R</a></li>
+<li class="chapter" data-level="1.5.7" data-path="1.5-data.html"><a href="1.5-data.html#generating-random-data-sets-in-r"><i class="fa fa-check"></i><b>1.5.7</b> Generating Random Data sets in R</a></li>
+<li class="chapter" data-level="1.5.8" data-path="1.5-data.html"><a href="1.5-data.html#working-with-dplyr-package"><i class="fa fa-check"></i><b>1.5.8</b> Working With <code>dplyr</code>-package</a></li>
+<li class="chapter" data-level="" data-path="1.5-data.html"><a href="1.5-data.html#esercises"><i class="fa fa-check"></i>Esercises</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="2-review-of-basic-probability.html"><a href="2-review-of-basic-probability.html"><i class="fa fa-check"></i><b>2</b> Review of Basic probability</a></li>
-<li class="chapter" data-level="3" data-path="3-statistical-estimation.html"><a href="3-statistical-estimation.html"><i class="fa fa-check"></i><b>3</b> Statistical Estimation</a></li>
+<li class="chapter" data-level="2" data-path="2-review-of-basic-probability.html"><a href="2-review-of-basic-probability.html"><i class="fa fa-check"></i><b>2</b> Review of Basic probability</a><ul>
+<li class="chapter" data-level="2.1" data-path="2.1-recalling-the-distributions-expectation-variance.html"><a href="2.1-recalling-the-distributions-expectation-variance.html"><i class="fa fa-check"></i><b>2.1</b> Recalling the distributions, Expectation, Variance</a></li>
+<li class="chapter" data-level="2.2" data-path="2.2-demoivre-central-limit-theorem.html"><a href="2.2-demoivre-central-limit-theorem.html"><i class="fa fa-check"></i><b>2.2</b> DeMoivre Central Limit Theorem</a></li>
+<li class="chapter" data-level="2.3" data-path="2.3-tchebychev-inequality.html"><a href="2.3-tchebychev-inequality.html"><i class="fa fa-check"></i><b>2.3</b> Tchebychev Inequality</a></li>
+<li class="chapter" data-level="2.4" data-path="2.4-empirical-distribution-function.html"><a href="2.4-empirical-distribution-function.html"><i class="fa fa-check"></i><b>2.4</b> Empirical Distribution Function</a></li>
+<li class="chapter" data-level="2.5" data-path="2.5-sample-mean-and-variance.html"><a href="2.5-sample-mean-and-variance.html"><i class="fa fa-check"></i><b>2.5</b> Sample Mean and Variance</a></li>
+<li class="chapter" data-level="2.6" data-path="2.6-chi2-t-and-f-distribution.html"><a href="2.6-chi2-t-and-f-distribution.html"><i class="fa fa-check"></i><b>2.6</b> <span class="math inline">\(\chi^2, t\)</span> and <span class="math inline">\(F\)</span> distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-statistical-estimation.html"><a href="3-statistical-estimation.html"><i class="fa fa-check"></i><b>3</b> Statistical Estimation</a><ul>
+<li class="chapter" data-level="3.1" data-path="3.1-estimator.html"><a href="3.1-estimator.html"><i class="fa fa-check"></i><b>3.1</b> Estimator</a></li>
+<li class="chapter" data-level="3.2" data-path="3.2-method-of-moments.html"><a href="3.2-method-of-moments.html"><i class="fa fa-check"></i><b>3.2</b> Method of moments</a></li>
+<li class="chapter" data-level="3.3" data-path="3.3-maximum-liklihood-estimate.html"><a href="3.3-maximum-liklihood-estimate.html"><i class="fa fa-check"></i><b>3.3</b> Maximum liklihood estimate</a></li>
+<li class="chapter" data-level="3.4" data-path="3.4-confidence-intervals.html"><a href="3.4-confidence-intervals.html"><i class="fa fa-check"></i><b>3.4</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="3.5" data-path="3.5-bivariate-data.html"><a href="3.5-bivariate-data.html"><i class="fa fa-check"></i><b>3.5</b> Bivariate Data</a></li>
+<li class="chapter" data-level="3.6" data-path="3.6-covariance-correlation.html"><a href="3.6-covariance-correlation.html"><i class="fa fa-check"></i><b>3.6</b> Covariance, Correlation</a></li>
+<li class="chapter" data-level="3.7" data-path="3.7-method-of-least-squares-linear-regression.html"><a href="3.7-method-of-least-squares-linear-regression.html"><i class="fa fa-check"></i><b>3.7</b> Method of least squares (Linear regression)</a></li>
+<li class="chapter" data-level="3.8" data-path="3.8-t-confidence-interval.html"><a href="3.8-t-confidence-interval.html"><i class="fa fa-check"></i><b>3.8</b> <span class="math inline">\(t\)</span>-confidence Interval</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a></li>
 <li class="chapter" data-level="5" data-path="5-resampling-methods-jackknife-and-bootstrap.html"><a href="5-resampling-methods-jackknife-and-bootstrap.html"><i class="fa fa-check"></i><b>5</b> Resampling Methods: Jackknife and Bootstrap</a></li>
 <li class="divider"></li>
@@ -197,11 +221,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 	<link preload href="css/fonts.css" rel="stylesheet" />
 </head>
 <div class="book-image-container">
-	<img class="book-image" src="images/pexels-lukas-590022.jpg" />
+	<img class="book-image" src="images/cover.png" />
 </div>
 <div id="r-lang" class="section level2 hasAnchor">
-<h2><span class="header-section-number">1.1</span> R<a href="1.1-r-lang.html#r-lang" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R is a free and open-source interpreted computer programming language and runs on Linux, Windows, and macOS. It is modeled after S and S-Plus. The S language was developed in the late 1980s at AT &amp; T labs. The R project was started by Robert Gentleman and Ross Ihaka of the Statistics Department of the University of Auckland in <a href="1.5-ggplot2-data-visualization.html#references">1995</a>. It is now a collaborative project with many contributors and is maintained by the <a href="https://www.r-project.org/contributors.html">R core-development team</a>.</p>
+<h2><span class="header-section-number">1.1</span> Introduction<a href="1.1-r-lang.html#r-lang" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R is a free and open-source interpreted computer programming language and runs on Linux, Windows, and macOS. It is modeled after S and S-Plus. The S language was developed in the late 1980s at AT &amp; T labs. The R project was started by Robert Gentleman and Ross Ihaka of the Statistics Department of the University of Auckland in <a href="#references">1995</a>. It is now a collaborative project with many contributors and is maintained by the <a href="https://www.r-project.org/contributors.html">R core-development team</a>.</p>
 <div id="installation-and-setup" class="section level3 hasAnchor">
 <h3><span class="header-section-number">1.1.1</span> Installation and setup<a href="1.1-r-lang.html#installation-and-setup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To download R, go to <a href="https://cran.r-project.org">CRAN</a>, the Comprehensive R Archive Network. CRAN is composed of a set of mirror servers distributed around the world and is used to distribute R and R packages. Don’t try and pick a mirror that’s close to you: instead use the cloud mirror, <a href="https://cloud.r-project.org">https://cloud.r-project.org</a>, which automatically figures it out for you.</p>
@@ -307,6 +331,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-2"><a href="1.1-r-lang.html#cb17-2"></a><span class="co">#&gt;  [1]   1   2   3   4   5   6   7   8   9  91  92  93  94  95  96  97  98  99 100</span></span></code></pre></div>
 </div>
 </div>
+<div id="exercises" class="section level3 unnumbered hasAnchor">
+<h3>Exercises<a href="1.1-r-lang.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Hafisa has a log book of time spentby her on Moodle. In the log book she keeps track of the 24-hour reading before each time she logs in. The last 10 readings for a particular student in a day are: <span class="math display">\[ 7, 8, 9, 11, 13, 15, 17, 18, 23 \]</span>
+<ul>
+<li>Enter these numbers into R as a variable <code>moodle_reading</code>. Use the function <code>diff()</code> on the data. What does it give? Write down, <code>x</code>, the number of hours between each time Hafisa logs into moodle.</li>
+<li>Use the <code>max()</code> to find the maximum number of hours, the <code>mean()</code> function to find the average number of hours and the <code>min()</code> to get the minimum number of hours for Hafisa between two logins.</li>
+</ul></li>
+<li>Happy Gouda’s quiz scores in Semester II are given below <span class="math display">\[ 7, 6, 10, 8, 7, 9, 9, 6, 4, 10, 8, 6, 9, 10 \]</span>
+<ul>
+<li>Enter this into R as a variable <code>score_hg</code>. Use the function <code>max()</code> to find the highest score, the function mean to find the average and the function min to find the minimum.</li>
+<li>When confronted by Looser Siva, HG realises that entry 4 was a mistake. It should have been 5. How can you fix this? Do so, and then find the new average.</li>
+<li>What does the below command provide in R?</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="1.1-r-lang.html#cb18-1"></a><span class="kw">sum</span>(score_hg <span class="op">&gt;=</span><span class="st"> </span><span class="dv">9</span>)</span></code></pre></div>
+<ul>
+<li>What do you get? What percent of your scores are less than 17? How can you answer this with R?</li>
+</ul></li>
+<li>Naina’s cell phone bill varies from month to month. Suppose in her first year of Super DATA (hons.) program, under the Drop-atmost 10-calls monthly plan, the following monthly amounts were incurred: <span class="math display">\[ 460, 330, 390, 370, 460, 300, 480, 320, 490, 350, 300, 480 \]</span>
+<ul>
+<li>Enter this data into a variable called <code>naina_bill</code>. Use the <code>sum()</code> function to find the amount spent by Naina that year on the cell phone.</li>
+<li>Using R find out what is the smallest amount she spent in a month and the largest amount she spent in a month?</li>
+<li>How many months was the amount greater than Rs 400? What percentage was this?</li>
+<li>Her monthly loan from NOmoney Bank was Rs 3000. Using R store her balance(after paying her phone bill) in a variable called <code>free_money</code>. Find the average amount available each month for her other expenses.</li>
+</ul></li>
+</ol>
+</div>
 </div>
             </section>
 
@@ -314,7 +365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="1-r-basics-and-exploratory-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="1.2-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="1.2-ggplot2-data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,5 +1,8 @@
 --- 
 title: "Introduction to Statistics and Computation with Data"
+author:
+   - Siva Athreya
+   - Bikram Halder
 site: bookdown::bookdown_site
 documentclass: krantz
 bibliography: [book.bib, packages.bib] 
@@ -13,7 +16,7 @@ lof: yes
 fontsize: 11pt
 ---
 
-# Preface {#ISCD .unnumbered}    
+# Preface {#ISCD .unnumbered}
 
 ### Authors {-}
 
