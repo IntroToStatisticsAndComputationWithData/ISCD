@@ -1,3 +1,6 @@
+exr:ex-hw-z-t
+hyp:z-ex-1
+exr:z-ex-2
 r-basics-and-exploratory-data-analysis
 r-lang
 installation-and-setup
@@ -62,4 +65,10 @@ covariance-correlation
 method-of-least-squares-linear-regression
 t-confidence-interval
 hypothesis-testing
+introduction
+exercise
+z-and-t-test
+z-test-population-is-nmu-sigma2-and-mu-unknown
+chi2-goodness-of-fit
+non-parametric-tests
 resampling-methods-jackknife-and-bootstrap

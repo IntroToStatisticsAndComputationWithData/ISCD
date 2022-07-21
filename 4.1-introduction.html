@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.3 Tchebychev Inequality | Introduction to Statistics and Computation with Data</title>
-  <meta name="description" content="2.3 Tchebychev Inequality | Introduction to Statistics and Computation with Data" />
+  <title>4.1 Introduction | Introduction to Statistics and Computation with Data</title>
+  <meta name="description" content="4.1 Introduction | Introduction to Statistics and Computation with Data" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.3 Tchebychev Inequality | Introduction to Statistics and Computation with Data" />
+  <meta property="og:title" content="4.1 Introduction | Introduction to Statistics and Computation with Data" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="BikramHalder/ISCD" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.3 Tchebychev Inequality | Introduction to Statistics and Computation with Data" />
+  <meta name="twitter:title" content="4.1 Introduction | Introduction to Statistics and Computation with Data" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="2.2-demoivre-central-limit-theorem.html"/>
-<link rel="next" href="2.4-empirical-distribution-function.html"/>
+<link rel="prev" href="4-hypothesis-testing.html"/>
+<link rel="next" href="4.2-z-and-t-test.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -232,16 +232,167 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="book-image-container">
 	<img class="book-image" src="images/cover.png" />
 </div>
-<div id="tchebychev-inequality" class="section level2 hasAnchor">
-<h2><span class="header-section-number">2.3</span> Tchebychev Inequality<a href="2.3-tchebychev-inequality.html#tchebychev-inequality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introduction" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.1</span> Introduction<a href="4.1-introduction.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So far we have discussed <em>models</em> especially Linear Model where ingridients were <strong>population of interest, smaple data from the population</strong> and more importantly we assumed that the data came from certain model, so we estimated the parameters corresponding to the model.</p>
+<p>In this chapter, we will shift our focus and will take an interest to the following questions:</p>
+<ul>
+<li>Are two sub-population <strong>“different”</strong> or <strong>“same”</strong>?</li>
+<li>Are the measured attributes independent of each other?</li>
+</ul>
+<p>For example,</p>
+<ul>
+<li>Are temperatures today higher than they were 100 years ago?</li>
+<li>Does smoking reduce life expectency?</li>
+<li>Is treatment <strong>A</strong> genuinely different from treatment <strong>B</strong>?</li>
+</ul>
+<p>What hypothesis testing is?
+You hypothesise some statement about the data and develop a test which will tell you wheather the hypothesis is resonable or not. And, these are the key steps of hypothesis testing.
+To execute a hypothesis testing we will</p>
+<ul>
+<li><strong>first</strong>, Make a conjecture</li>
+<li><strong>second</strong>, Perform some probabilistic and statistical computation to test the conjecture.</li>
+</ul>
+<p>Here you will see many application of those probabilistic distributions you learnt earlier, appearing in different tests. And, since the hypothesis is verified with sample data, statistical stuffs will also appear.</p>
+<p>. In the computation step you will compute the likeliness of the</p>
+<hr />
+<p>Let’s see an example:</p>
+<p>Given a coin, we are interested in the probability <span class="math inline">\(p\)</span> of showing heads when tossed. We toss the coin 100 times and record the outcome as <span class="math inline">\(X_1, X_2, \ldots, X_{100} \overset{\mathrm{iid}}{\sim} Ber(p)\)</span> and found that <span class="math inline">\(\sum_{i=1}^{100} X_i = 67\)</span>. Till now we used this (in MOM and MLE) to estimate <span class="math inline">\(p\)</span>.</p>
+<p>Now we ask a diiferent question: Is <span class="math inline">\(p=0.5\)</span> a valid hypothesis given the finding?
+,that is, we conjectured that <span class="math inline">\(p=0.5\)</span> and want to</p>
+<p>Observe that, If the coin had an equal chance of heads and tails then chance of 67 heads in 100 tosses is <span class="math display">\[\binom{100}{67} \left( \frac{1}{2} \right)^{100} \approx 0.04\]</span></p>
+<p>Anyway let’s directly dig into hypothesis test,</p>
+<ul>
+<li><u><strong>z-test</strong></u>: Suppose <span class="math inline">\(X_1, X_2, \ldots, X_n \overset{\mathrm{iid}}{\sim} N(\mu, \sigma^2)\)</span> where, <span class="math inline">\(\sigma\)</span> is known but <span class="math inline">\(\mu\)</span> is unknown. Let <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> be iid sample from the population.
+We compute and find: <span class="math display">\[\overline{X} = \frac{X_1 + X_2 + \cdots + X_n}{n}\]</span></li>
+</ul>
+<p>Is <span class="math inline">\(\underset{\mathrm{null \ hypothesis}}{\mu = c}\)</span> or <span class="math inline">\(\underset{\mathrm{alternate \ hypothesis}}{\mu &gt; c}\)</span>?</p>
+<p>Now the question comes, Given <span class="math inline">\(\overline{X}\)</span>; If null hypothesis was true how likely is is that we would have a sample mean as large as the observed value <span class="math inline">\(\overline{X}\)</span>?</p>
+<p>Answer: <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> are known. Let <span class="math inline">\(Y_1, Y_2, \ldots, Y_n\overset{\mathrm{iid}}{\sim} N(c, \sigma^2)\)</span>
+<span class="math display">\[\text{Compute:} \quad \mathbb{P}\left(\underset{\mathrm{Random \ variable}}{\overline{Y}} \geq \underset{\mathrm{Determistic \ quantity}}{\overline{X}}\right)\]</span></p>
+<p><span class="math inline">\(\mathbb{P}({\overline{Y}} \geq \overline{X})\)</span> is called the test statistic which descrobes how likely it is that test statistic <span class="math inline">\(\overline{X}\)</span> would be atleast as far away form <span class="math inline">\(c\)</span> as what was observed.</p>
+<p>Define: <span class="math display">\[Z := \frac{\sqrt{n}(\overline{Y}-c)}{\sigma} \sim N(0, 1)\]</span>
+Now,
+<span class="math display">\[\begin{align*}
+&amp;\mathbb{P}({\overline{Y}} \geq \overline{X}) \\
+&amp; = \mathbb{P}\left(\frac{\sqrt{n}(\overline{Y}-c)}{\sigma} \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) \\
+&amp; = \mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right)
+\end{align*}\]</span>
+<strong>We reject the null hypothesis</strong> if the probability is <strong>“small”</strong> (variable at the hands of the user!)</p>
+<p>So we fix level <span class="math inline">\(\alpha \in (0,1)\)</span>.
+If <span class="math inline">\(\mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) &lt; \alpha\)</span> then, we conclude that the sample average <span class="math inline">\(\overline{X}\)</span> is so far from <span class="math inline">\(c\)</span> that hypothesis <span class="math inline">\(\mu = c\)</span> is not true!</p>
+<p>For example, Suppose <span class="math inline">\(X \sim N(\mu, 9)\)</span>. A sample <span class="math inline">\(X_1, X_2, \ldots, X_{16}\)</span> is drawn from <span class="math inline">\(X\)</span> and we observe <span class="math inline">\(\overline{X} = 10.2\)</span></p>
+<ul>
+<li>Null hypothesis: <span class="math inline">\(\mu = 9.5\)</span></li>
+<li>Alternate hypothesis: <span class="math inline">\(\mu &gt; 9.5\)</span></li>
+<li>Level of significance: <span class="math inline">\(\alpha = 0.5\)</span></li>
+</ul>
+<p><u>Answer</u>: <span class="math inline">\(\overline{X} = 10.2; c = 9.5; \sigma = 3; \mu = 16\)</span>
+Compute: <span class="math display">\[\begin{align*}
+&amp; \mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) \\ 
+&amp; = \mathbb{P}\left(Z \geq \frac{\sqrt{16}(10.2-9.5)}{3}\right) \\
+&amp; = \mathbb{P}\left(Z \geq \frac{4\times 0.7}{3}\right) \\
+&amp; \approx 0.175 \tag{from $Z-$table}
+\end{align*}\]</span>
+Observe: For, <span class="math inline">\(\alpha = 0.05\)</span> we have <span class="math inline">\(\mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) \geq \alpha\)</span>.</p>
+<p>Conclusion: At level <span class="math inline">\(\alpha\)</span> we can’t reject the null hypothesis.</p>
+<p>Example 2: Suppose <span class="math inline">\(X \sim N(\mu, 9)\)</span>. A sample <span class="math inline">\(X_1, X_2, \ldots, X_{16}\)</span> is drawn from <span class="math inline">\(X\)</span> and we observe <span class="math inline">\(\overline{X} = 10.2\)</span></p>
+<ul>
+<li>Null hypothesis: <span class="math inline">\(\mu = 8.5\)</span></li>
+<li>Alternate hypothesis: <span class="math inline">\(\mu &gt; 8.5\)</span></li>
+<li>Level of significance: <span class="math inline">\(\alpha = 0.5\)</span></li>
+</ul>
+<p><u>Answer</u>: <span class="math inline">\(\overline{X} = 10.2; c = 8.5; n = 16; \sigma = 3; \mu = 16\)</span>
+Compute: <span class="math display">\[\begin{align*}
+&amp; \mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) \\ 
+&amp; = \mathbb{P}\left(Z \geq \frac{\sqrt{16}(10.2-8.5)}{3}\right) \\
+&amp; = \mathbb{P}\left(Z \geq \frac{4\times 1.7}{3}\right) \\
+&amp; \approx 0.012 \tag{from $Z-$table}
+\end{align*}\]</span>
+Observe: For, <span class="math inline">\(\alpha = 0.05\)</span> we have <span class="math inline">\(\mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) = 0.012 &lt; \alpha\)</span>.</p>
+<p>Conclusion: At level <span class="math inline">\(\alpha\)</span> as <span class="math inline">\(\mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right)\)</span> is less than <span class="math inline">\(\alpha\)</span> , we reject the null hypothesis.</p>
+<p>Example 3: Suppose a medical research team wants to design an experiment to determine wheather the newly developed vaccine for a new disease is effective or not?</p>
+<p><u><strong>Experiment (First cut strategy):</strong></u></p>
+<ul>
+<li>Choose: <span class="math inline">\(n-\)</span>individuals from the population. <span class="math inline">\(n_1\)</span> of them are given the <strong>vaccine</strong>, <span class="math inline">\(n_2(= n-n_1)\)</span> of them are given the <strong>placebo</strong>.</li>
+<li>Wait a specific amount of time to see how many are affected by the disease.</li>
+<li>Summarize the findings as a <span class="math inline">\(2\times 2\)</span> table:</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Infected</th>
+<th>Not infected</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Vaccine</td>
+<td><span class="math inline">\(X_{11}\)</span></td>
+<td><span class="math inline">\(X_{12}\)</span></td>
+<td><span class="math inline">\(n_1\)</span></td>
+</tr>
+<tr class="even">
+<td>Placebo</td>
+<td><span class="math inline">\(X_{21}\)</span></td>
+<td><span class="math inline">\(X_{22}\)</span></td>
+<td><span class="math inline">\(n_2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>If the vaccine was effective:</strong> Expect a smaller proportion of the vaccinated group to be affected by the disease.</p>
+<p>If the chance of getting affected by the disease doesn’t depend on wheather the vaccine was given or no, <strong>then the vaccine is ineffective</strong>.</p>
+<p><u><strong>Approach:</strong></u> Start by assuming independence ,i.e., the vaccine has no effect unless convinced otherwise by evidence.</p>
+<p><u><strong>General question/Situation:</strong></u></p>
+<ul>
+<li>We have two <strong>“treatments”</strong> applied to a group of experimental units.</li>
+<li>One of two possible outcomes is record.</li>
+</ul>
+<p><span class="math display">\[
+X_{ij} = \begin{cases}
+\text{# of participants given treatment $i$ and had outcome $j$}
+\end{cases}
+\]</span></p>
+<p><strong>Note:</strong> In example above there is an exlicit randomness.</p>
+<p><strong>Assume:</strong> <span class="math inline">\(n-\)</span>fixed. Choose <span class="math inline">\(n_1-\)</span>randomly without replacement from <span class="math inline">\(n\)</span>.</p>
+<div id="exercise" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.1.1</span> Exercise<a href="4.1-introduction.html#exercise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Suppose we assume chance of getting the disease is <span class="math inline">\(p\)</span>. What is the distribution of <span class="math inline">\(X_{11}\)</span>?</li>
+</ul>
+<p><strong>Decision Making(Ideal):</strong> If <span class="math inline">\(X_{11}\)</span> is the among more liekly possiblities (under the independence/vaccine ineffective) then we have no reason to suspect the ineffectiveness of the vaccine.</p>
+<p>On the other hand, if <span class="math inline">\(X_{11}\)</span> is the among <strong>“impossible”</strong> possiblities (under the independence/vaccine ineffective) then we have reason to reject the hypothesis of the ineffectiveness of the vaccine.</p>
+<p>Now another approach is to test in the parametric setup (more intuitive).</p>
+<p><u>Example:</u> Given a coin and we are interested in the probability <span class="math inline">\(p\)</span> of showing heads when tossed.</p>
+<p>Toss teh coin <span class="math inline">\(100\)</span> times. Record sample data as <span class="math inline">\(X_1, X_2, \ldots, X_{100}\)</span> with <span class="math inline">\(X_i \sim Ber(p)\)</span>. Get that <span class="math inline">\(\sum_{i=1}^{100} = 67\)</span></p>
+<p>Now the same question comes, <span class="math inline">\(p=0.5\)</span> or <span class="math inline">\(p \not= 0.5\)</span>?</p>
+<p>Answer: Compute
+<span class="math display">\[
+\mathbb{P}\left(\sum_{i=1}^{100} = 67 \right) \ \text{under $p = 0.5$}
+\]</span></p>
+<p>Depending on the answer conclude the hypothesis accurate or not</p>
+<ul>
+<li>Find <strong>MLE</strong> of <span class="math inline">\(p\)</span> given <span class="math inline">\(X_1, X_2, \ldots, X_{100}\)</span></li>
+<li>Provide a confidence interval for <span class="math inline">\(p\)</span></li>
+</ul>
+<p><u>Broad procedure to a test:</u></p>
+<ul>
+<li><span class="math inline">\(X_1, X_2, \ldots, X_{100}\)</span> are <span class="math inline">\(\rm iid\)</span> sample from <span class="math inline">\(X\)</span></li>
+<li><span class="math inline">\(X\)</span> has <em>pmf</em>/<em>pdf</em> <span class="math inline">\(f(x|p)\)</span> <span class="math inline">\(p \in \mathcal{P} \subseteq \mathbb{R}^{\theta}\)</span></li>
+</ul>
+<p><u>Hypothesis that we posed:</u> p=0.5; Restrict the values <span class="math inline">\(p\)</span> can take, say <span class="math inline">\(p \in \mathcal{P} \not\subseteq \mathcal{P}\)</span>
+Device a computation to test the hypothesis, i.e., find a test statistic <span class="math inline">\(\equiv\)</span> function of sample <span class="math inline">\(X_1, X_2, \ldots, X_{n}\)</span></p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="2.2-demoivre-central-limit-theorem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="2.4-empirical-distribution-function.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4-hypothesis-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.2-z-and-t-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -272,7 +423,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/BikramHalder/ISCD/edit/main/02-review-of-basic-prob.Rmd",
+"link": "https://github.com/BikramHalder/ISCD/edit/main/04-hypothesis-test.Rmd",
 "text": "Edit"
 },
 "history": {

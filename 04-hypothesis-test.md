@@ -1,7 +1,239 @@
 # Hypothesis Testing
 
 > "It's easy to lie with statistics. It's hard to tell the truth without statistics"
---- Andrejs Dunkels
+>
+> --- Andrejs Dunkels
 
 
 
+
+## Introduction
+
+So far we have discussed _models_ especially Linear Model where ingridients were **population of interest, smaple data from the population** and more importantly we assumed that the data came from certain model, so we estimated the parameters corresponding to the model. 
+
+In this chapter, we will shift our focus and will take an interest to the following questions:
+
+- Are two sub-population **"different"** or **"same"**?
+- Are the measured attributes independent of each other?
+
+For example,
+
+- Are temperatures today higher than they were 100 years ago?
+- Does smoking reduce life expectency?
+- Is treatment **A** genuinely different from treatment **B**?
+
+What hypothesis testing is?
+You hypothesise some statement about the data and develop a test which will tell you wheather the hypothesis is resonable or not. And, these are the key steps of hypothesis testing.
+To execute a hypothesis testing we will 
+
+- **first**, Make a conjecture
+- **second**, Perform some probabilistic and statistical computation to test the conjecture.
+
+Here you will see many application of those probabilistic distributions you learnt earlier, appearing in different tests. And, since the hypothesis is verified with sample data, statistical stuffs will also appear.
+
+. In the computation step you will compute the likeliness of the 
+
+---
+
+Let's see an example:
+
+Given a coin, we are interested in the probability $p$ of showing heads when tossed. We toss the coin 100 times and record the outcome as $X_1, X_2, \ldots, X_{100} \overset{\mathrm{iid}}{\sim} Ber(p)$ and found that $\sum_{i=1}^{100} X_i = 67$. Till now we used this (in MOM and MLE) to estimate $p$.
+
+Now we ask a diiferent question: Is $p=0.5$ a valid hypothesis given the finding?
+,that is, we conjectured that $p=0.5$ and want to 
+
+Observe that, If the coin had an equal chance of heads and tails then chance of 67 heads in 100 tosses is $$\binom{100}{67} \left( \frac{1}{2} \right)^{100} \approx 0.04$$
+
+Anyway let's directly dig into hypothesis test,
+
+- <u>**z-test**</u>: Suppose $X_1, X_2, \ldots, X_n \overset{\mathrm{iid}}{\sim} N(\mu, \sigma^2)$ where, $\sigma$ is known but $\mu$ is unknown. Let $X_1, X_2, \ldots, X_n$ be iid sample from the population.
+We compute and find: $$\overline{X} = \frac{X_1 + X_2 + \cdots + X_n}{n}$$
+
+
+Is $\underset{\mathrm{null \ hypothesis}}{\mu = c}$ or $\underset{\mathrm{alternate \ hypothesis}}{\mu > c}$?
+
+Now the question comes, Given $\overline{X}$; If null hypothesis was true how likely is is that we would have a sample mean as large as the observed value $\overline{X}$?
+
+Answer: $X_1, X_2, \ldots, X_n$ are known. Let $Y_1, Y_2, \ldots, Y_n\overset{\mathrm{iid}}{\sim} N(c, \sigma^2)$
+$$\text{Compute:} \quad \mathbb{P}\left(\underset{\mathrm{Random \ variable}}{\overline{Y}} \geq \underset{\mathrm{Determistic \ quantity}}{\overline{X}}\right)$$
+
+$\mathbb{P}({\overline{Y}} \geq \overline{X})$ is called the test statistic which descrobes how likely it is that test statistic $\overline{X}$ would be atleast as far away form $c$ as what was observed.
+
+Define: $$Z := \frac{\sqrt{n}(\overline{Y}-c)}{\sigma} \sim N(0, 1)$$
+Now,
+$$\begin{align*}
+&\mathbb{P}({\overline{Y}} \geq \overline{X}) \\
+& = \mathbb{P}\left(\frac{\sqrt{n}(\overline{Y}-c)}{\sigma} \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) \\
+& = \mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right)
+\end{align*}$$
+**We reject the null hypothesis** if the probability is **"small"** (variable at the hands of the user!)
+
+So we fix level $\alpha \in (0,1)$.
+If $\mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) < \alpha$ then, we conclude that the sample average $\overline{X}$ is so far from $c$ that hypothesis $\mu = c$ is not true!
+
+For example, Suppose $X \sim N(\mu, 9)$. A sample $X_1, X_2, \ldots, X_{16}$ is drawn from $X$ and we observe $\overline{X} = 10.2$
+
+- Null hypothesis: $\mu = 9.5$
+- Alternate hypothesis: $\mu > 9.5$
+- Level of significance: $\alpha = 0.5$
+
+<u>Answer</u>: $\overline{X} = 10.2; c = 9.5; \sigma = 3; \mu = 16$
+Compute: $$\begin{align*}
+& \mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) \\ 
+& = \mathbb{P}\left(Z \geq \frac{\sqrt{16}(10.2-9.5)}{3}\right) \\
+& = \mathbb{P}\left(Z \geq \frac{4\times 0.7}{3}\right) \\
+& \approx 0.175 \tag{from $Z-$table}
+\end{align*}$$
+Observe: For, $\alpha = 0.05$ we have $\mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) \geq \alpha$.
+
+Conclusion: At level $\alpha$ we can't reject the null hypothesis.
+
+Example 2: Suppose $X \sim N(\mu, 9)$. A sample $X_1, X_2, \ldots, X_{16}$ is drawn from $X$ and we observe $\overline{X} = 10.2$
+
+- Null hypothesis: $\mu = 8.5$
+- Alternate hypothesis: $\mu > 8.5$
+- Level of significance: $\alpha = 0.5$
+
+<u>Answer</u>: $\overline{X} = 10.2; c = 8.5; n = 16; \sigma = 3; \mu = 16$
+Compute: $$\begin{align*}
+& \mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) \\ 
+& = \mathbb{P}\left(Z \geq \frac{\sqrt{16}(10.2-8.5)}{3}\right) \\
+& = \mathbb{P}\left(Z \geq \frac{4\times 1.7}{3}\right) \\
+& \approx 0.012 \tag{from $Z-$table}
+\end{align*}$$
+Observe: For, $\alpha = 0.05$ we have $\mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) = 0.012 < \alpha$.
+
+Conclusion: At level $\alpha$ as  $\mathbb{P}\left(Z \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right)$ is less than $\alpha$ , we reject the null hypothesis.
+
+
+Example 3: Suppose a medical research team wants to design an experiment to determine wheather the newly developed vaccine for a new disease is effective or not?
+
+<u>**Experiment (First cut strategy):**</u>
+
+- Choose: $n-$individuals from the population. $n_1$ of them are given the **vaccine**, $n_2(= n-n_1)$ of them are given the **placebo**.
+- Wait a specific amount of time to see how many are affected by the disease.
+- Summarize the findings as a $2\times 2$ table:
+
+| | Infected | Not infected | |
+|---|---|---|---|
+| Vaccine | $X_{11}$ | $X_{12}$ | $n_1$ |
+| Placebo | $X_{21}$ | $X_{22}$ | $n_2$ |
+
+**If the vaccine was effective:** Expect a smaller proportion of the vaccinated group to be affected by the disease.
+
+If the chance of getting affected by the disease doesn't depend on wheather the vaccine was given or no, **then the vaccine is ineffective**.
+
+<u>**Approach:**</u> Start by assuming independence ,i.e., the vaccine has no effect unless convinced otherwise by evidence.
+
+<u>**General question/Situation:**</u>
+
+- We have two **"treatments"** applied to a group of experimental units.
+- One of two possible outcomes is record.
+
+$$
+X_{ij} = \begin{cases}
+\text{# of participants given treatment $i$ and had outcome $j$}
+\end{cases}
+$$
+
+**Note:** In example above there is an exlicit randomness.
+
+**Assume:** $n-$fixed. Choose $n_1-$randomly without replacement from $n$.
+
+### Exercise
+
+- Suppose we assume chance of getting the disease is $p$. What is the distribution of $X_{11}$?
+
+**Decision Making(Ideal):** If $X_{11}$ is the among more liekly possiblities (under the independence/vaccine ineffective) then we have no reason to suspect the ineffectiveness of the vaccine.
+
+On the other hand, if $X_{11}$ is the among **"impossible"** possiblities (under the independence/vaccine ineffective) then we have reason to reject the hypothesis of the ineffectiveness of the vaccine.
+
+Now another approach is to test in the parametric setup (more intuitive).
+
+<u>Example:</u> Given a coin and we are interested in the probability $p$ of showing heads when tossed.
+
+Toss teh coin $100$ times. Record sample data as $X_1, X_2, \ldots, X_{100}$ with $X_i \sim Ber(p)$. Get that $\sum_{i=1}^{100} = 67$
+
+Now the same question comes, $p=0.5$ or $p \not= 0.5$?
+
+Answer: Compute
+$$
+\mathbb{P}\left(\sum_{i=1}^{100} = 67 \right) \ \text{under $p = 0.5$}
+$$
+
+Depending on the answer conclude the hypothesis accurate or not
+
+- Find **MLE** of $p$ given $X_1, X_2, \ldots, X_{100}$
+- Provide a confidence interval for $p$
+
+<u>Broad procedure to a test:</u>
+
+- $X_1, X_2, \ldots, X_{100}$  are $\rm iid$ sample from $X$
+- $X$ has _pmf_/_pdf_ $f(x|p)$ $p \in \mathcal{P} \subseteq \mathbb{R}^{\theta}$
+
+<u>Hypothesis that we posed:</u> p=0.5; Restrict the values $p$ can take, say $p \in \mathcal{P} \not\subseteq \mathcal{P}$
+Device a computation to test the hypothesis, i.e., find a test statistic $\equiv$ function of sample $X_1, X_2, \ldots, X_{n}$
+
+
+
+
+
+## $z$ and $t$ test
+
+### $Z$-test: Population is $N(\mu, \sigma^2)$ and $\mu$ unknown
+
+Suppose - $X_1, X_2, \ldots, X_{n} \overset{\mathrm{iid}}{\sim} N(\mu, \sigma^2)$ where $\sigma$ is known but **$\mu$ is unknown**.
+
+Let $\mu \in \mathcal{P} = \mathbb{R}$
+
+<u>Hypothesis:</u> $\mu = c \ \text{,i.e.,} \ \ \mathcal{P} = {c} \subset \mathcal{P}$
+
+Intuitive test statistic: $\overline{X}$ is the estimator of $\mu = c$
+
+<u>Naive test</u> 
+
+Check if $\overline{X} = c$. Say **"$\overline{X}$ is close to $c$"**(depends on $\sigma$). Is there a better approach with $\overline{X}?$
+
+::: {.exercise #ex-hw-z-t}
+$\overline{X} \sim N(c, \frac{\sigma^2}{n})$ if $\mu = c$ ,i.e., hypothesis is true.
+:::
+which would result, $\sqrt{n}\left(\frac{\overline{X}-c}{\sigma}\right) \sim N(0,1)$
+Another way to express **"if"** statement: If $Y_1, Y_2, \ldots, Y_{n} \overset{\mathrm{iid}}{\sim} N(c, \sigma^2)$  then $\sqrt{n}\left(\frac{\overline{Y}-c}{\sigma}\right) \sim N(0,1)$
+
+Here $Y_i$'s are hypothetical random variables and $N(c, \sigma^2)$ is called **"Null distribution"**
+
+Computing, 
+\begin{equation}
+\mathbb{P}\left(\frac{\sqrt{n}(\overline{Y}-c)}{\sigma} \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) \tag{*}
+\end{equation}
+allows us to compute, 
+
+::: {.hypothesis #z-ex-1}
+$H_0: \mu = c$ vs $H_A: \mu > c$
+:::
+
+The $p-$value is the value of $(*)$
+
+Fix $\alpha \in (0,1)$ (level of significance). 
+
+If $p-$value $< \alpha$ then reject the null hypothesis $\mu = c$ in favour  of alternate $\mu > c$.
+
+If $p-$value $\geq \alpha$ then there is no evidence to reject the null hypothesis $\mu = c$ in favour  of alternate $\mu > c$.
+
+::: {.exercise #z-ex-2}
+Device a computation/test of the following:
+
+- $H_0: \mu = c$ vs $H_A: \mu < c$
+- $H_0: \mu = c$ vs $H_A: \mu \not= c$
+:::
+
+::: {.hint #hint-ex-z-t-1}
+Hint: Suitably alter the computation
+$\mathbb{P}\left(\frac{\sqrt{n}(\overline{Y}-c)}{\sigma} \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right)$
+:::
+
+
+
+## $\chi^2$ goodness of fit
+
+## Non-parametric tests

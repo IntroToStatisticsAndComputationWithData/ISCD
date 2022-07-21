@@ -194,7 +194,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="3.7-method-of-least-squares-linear-regression.html"><a href="3.7-method-of-least-squares-linear-regression.html"><i class="fa fa-check"></i><b>3.7</b> Method of least squares (Linear regression)</a></li>
 <li class="chapter" data-level="3.8" data-path="3.8-t-confidence-interval.html"><a href="3.8-t-confidence-interval.html"><i class="fa fa-check"></i><b>3.8</b> <span class="math inline">\(t\)</span>-confidence Interval</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="4" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="4.1" data-path="4.1-introduction.html"><a href="4.1-introduction.html"><i class="fa fa-check"></i><b>4.1</b> Introduction</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="4.1-introduction.html"><a href="4.1-introduction.html#exercise"><i class="fa fa-check"></i><b>4.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html"><i class="fa fa-check"></i><b>4.2</b> <span class="math inline">\(z\)</span> and <span class="math inline">\(t\)</span> test</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#z-test-population-is-nmu-sigma2-and-mu-unknown"><i class="fa fa-check"></i><b>4.2.1</b> <span class="math inline">\(Z\)</span>-test: Population is <span class="math inline">\(N(\mu, \sigma^2)\)</span> and <span class="math inline">\(\mu\)</span> unknown</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="4.3-chi2-goodness-of-fit.html"><a href="4.3-chi2-goodness-of-fit.html"><i class="fa fa-check"></i><b>4.3</b> <span class="math inline">\(\chi^2\)</span> goodness of fit</a></li>
+<li class="chapter" data-level="4.4" data-path="4.4-non-parametric-tests.html"><a href="4.4-non-parametric-tests.html"><i class="fa fa-check"></i><b>4.4</b> Non-parametric tests</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="5-resampling-methods-jackknife-and-bootstrap.html"><a href="5-resampling-methods-jackknife-and-bootstrap.html"><i class="fa fa-check"></i><b>5</b> Resampling Methods: Jackknife and Bootstrap</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/BikramHalder/ISCD" target="blank">View Source</a></li>
@@ -239,17 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="mpg-dataset" class="section level4 hasAnchor">
 <h4><span class="header-section-number">1.2.1.1</span> <code>mpg</code> dataset<a href="1.2-ggplot2-data-visualization.html#mpg-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>mpg</code> is a dataset in <code>tidyverse</code>, which contains observations collected by US Environment Protection Agency on 38 models of cars.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="1.2-ggplot2-data-visualization.html#cb20-1"></a>mpg</span>
-<span id="cb20-2"><a href="1.2-ggplot2-data-visualization.html#cb20-2"></a><span class="co">#&gt; # A tibble: 234 × 11</span></span>
-<span id="cb20-3"><a href="1.2-ggplot2-data-visualization.html#cb20-3"></a><span class="co">#&gt;   manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class </span></span>
-<span id="cb20-4"><a href="1.2-ggplot2-data-visualization.html#cb20-4"></a><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; </span></span>
-<span id="cb20-5"><a href="1.2-ggplot2-data-visualization.html#cb20-5"></a><span class="co">#&gt; 1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compa…</span></span>
-<span id="cb20-6"><a href="1.2-ggplot2-data-visualization.html#cb20-6"></a><span class="co">#&gt; 2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compa…</span></span>
-<span id="cb20-7"><a href="1.2-ggplot2-data-visualization.html#cb20-7"></a><span class="co">#&gt; 3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compa…</span></span>
-<span id="cb20-8"><a href="1.2-ggplot2-data-visualization.html#cb20-8"></a><span class="co">#&gt; 4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compa…</span></span>
-<span id="cb20-9"><a href="1.2-ggplot2-data-visualization.html#cb20-9"></a><span class="co">#&gt; 5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compa…</span></span>
-<span id="cb20-10"><a href="1.2-ggplot2-data-visualization.html#cb20-10"></a><span class="co">#&gt; 6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compa…</span></span>
-<span id="cb20-11"><a href="1.2-ggplot2-data-visualization.html#cb20-11"></a><span class="co">#&gt; # … with 228 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="1.2-ggplot2-data-visualization.html#cb20-1"></a>mpg</span></code></pre></div>
 <p>To get deatails about <code>mpg</code> run</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="1.2-ggplot2-data-visualization.html#cb21-1"></a>?mpg</span></code></pre></div>
 </div>
@@ -258,14 +257,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For plotting the relationship between <code>displ</code> and <code>hwy</code> variable in <code>mpg</code> dataset, run this code (It puts the variables in x and y axis respectively):</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="1.2-ggplot2-data-visualization.html#cb22-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
 <span id="cb22-2"><a href="1.2-ggplot2-data-visualization.html#cb22-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy))</span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="01-r_files/figure-html/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The plots shows <em>negative relationship</em> between Engine Size(<code>displ</code>) and Fuel Efficiency(<code>hwy</code>).</p>
 <p>Begins with a function <code>ggplot()</code>-creates a coordinate system that you can add addlayers to. The first arugment is the data set to use <code>ggplot(data = mpg)</code> creates an empty graph. Add layers to <code>ggplot()</code>- the function <code>geom_point()</code> adds a layer of points to your plot. Each geom function takes a mapping argument. The mapping argument is always paired with <code>aes()</code></p>
 </div>
 <div id="template-for-graphing-in-ggplot2" class="section level4 hasAnchor">
 <h4><span class="header-section-number">1.2.1.3</span> Template for graphing in <code>ggplot2</code><a href="1.2-ggplot2-data-visualization.html#template-for-graphing-in-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="1.2-ggplot2-data-visualization.html#cb23-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="op">&lt;</span>DATA<span class="op">&gt;</span>) <span class="op">+</span></span>
-<span id="cb23-2"><a href="1.2-ggplot2-data-visualization.html#cb23-2"></a><span class="er">&lt;</span>GEOM_FUNCTION<span class="op">&gt;</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="op">&lt;</span>MAPPINGS<span class="op">&gt;</span>))</span></code></pre></div>
+<span id="cb23-2"><a href="1.2-ggplot2-data-visualization.html#cb23-2"></a><span class="st"> </span><span class="er">&lt;</span>GEOM_FUNCTION<span class="op">&gt;</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="op">&lt;</span>MAPPINGS<span class="op">&gt;</span>))</span></code></pre></div>
 <p>We will learn in the later subsections how to complete and extend this basic template to make different types of graphs.</p>
 </div>
 </div>
@@ -274,7 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Take a look at the below graph.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="1.2-ggplot2-data-visualization.html#cb24-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
 <span id="cb24-2"><a href="1.2-ggplot2-data-visualization.html#cb24-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">colour =</span> class))</span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-31-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="01-r_files/figure-html/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>We have added a <code>colour = class</code> by mapping it to an aesthetic called <code>colour</code> to for distinct values of <code>class</code> variable.</p>
 <p>The visual property of the objects you plot is called an <strong>aesthetic</strong>. It contains the information of size, shape, color of points etc.. By changing the aesthetic properties you can display points in other different ways.</p>
 <div id="aes-in-ggplot" class="section level4 hasAnchor">
@@ -287,7 +286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="1.2-ggplot2-data-visualization.html#cb25-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
 <span id="cb25-2"><a href="1.2-ggplot2-data-visualization.html#cb25-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy), <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-32-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="01-r_files/figure-html/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>As you can see in this example, <code>colour = "blue"</code> changes the colour of all points to blue.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><strong>The <code>alpha</code> aesthetic</strong>: It handles the tranparency of points</li>
@@ -295,7 +294,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="1.2-ggplot2-data-visualization.html#cb26-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
 <span id="cb26-2"><a href="1.2-ggplot2-data-visualization.html#cb26-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">alpha =</span> class))</span>
 <span id="cb26-3"><a href="1.2-ggplot2-data-visualization.html#cb26-3"></a><span class="co">#&gt; Warning: Using alpha for a discrete variable is not advised.</span></span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-33-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="01-r_files/figure-html/unnamed-chunk-31-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>The <code>shape</code> aesthetic</strong>: As the name suggests it controls the shape of the points</li>
 </ol>
@@ -305,7 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb27-4"><a href="1.2-ggplot2-data-visualization.html#cb27-4"></a><span class="co">#&gt; more than 6 becomes difficult to discriminate; you have 7. Consider</span></span>
 <span id="cb27-5"><a href="1.2-ggplot2-data-visualization.html#cb27-5"></a><span class="co">#&gt; specifying shapes manually if you must have them.</span></span>
 <span id="cb27-6"><a href="1.2-ggplot2-data-visualization.html#cb27-6"></a><span class="co">#&gt; Warning: Removed 62 rows containing missing values (geom_point).</span></span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-34-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="01-r_files/figure-html/unnamed-chunk-32-1.png" width="672" style="display: block; margin: auto;" />
 But unfortunately <code>ggplot2</code> plots only 6 different shapes in a plot! And as a result the additional group <code>suv</code> gets ommited (as you can see in the warning message!).</p>
 </div>
 </div>
@@ -316,19 +315,19 @@ But unfortunately <code>ggplot2</code> plots only 6 different shapes in a plot! 
 <span id="cb28-2"><a href="1.2-ggplot2-data-visualization.html#cb28-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">colour =</span> class)) <span class="op">+</span></span>
 <span id="cb28-3"><a href="1.2-ggplot2-data-visualization.html#cb28-3"></a><span class="st">  </span><span class="kw">scale_colour_viridis_d</span>(<span class="dt">option =</span> <span class="st">&quot;plasma&quot;</span>) <span class="op">+</span></span>
 <span id="cb28-4"><a href="1.2-ggplot2-data-visualization.html#cb28-4"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>class, <span class="dt">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-35-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="01-r_files/figure-html/unnamed-chunk-33-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>with <code>facet_wrap</code> you can split plot by a single variable into subplots that each display one subset of the data.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="1.2-ggplot2-data-visualization.html#cb29-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
 <span id="cb29-2"><a href="1.2-ggplot2-data-visualization.html#cb29-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">colour =</span> class)) <span class="op">+</span></span>
 <span id="cb29-3"><a href="1.2-ggplot2-data-visualization.html#cb29-3"></a><span class="st">  </span><span class="kw">scale_colour_viridis_d</span>(<span class="dt">option =</span> <span class="st">&quot;plasma&quot;</span>) <span class="op">+</span></span>
 <span id="cb29-4"><a href="1.2-ggplot2-data-visualization.html#cb29-4"></a><span class="st">  </span><span class="kw">facet_grid</span>(drv <span class="op">~</span><span class="st"> </span>cyl)</span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-36-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="01-r_files/figure-html/unnamed-chunk-34-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>with <code>facet_grid</code> you can split plot by a combination of two variables into subplots that each display one subset of the data.</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="1.2-ggplot2-data-visualization.html#cb30-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
 <span id="cb30-2"><a href="1.2-ggplot2-data-visualization.html#cb30-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">color =</span> class)) <span class="op">+</span></span>
 <span id="cb30-3"><a href="1.2-ggplot2-data-visualization.html#cb30-3"></a><span class="st">  </span><span class="kw">scale_colour_viridis_d</span>(<span class="dt">option =</span> <span class="st">&quot;plasma&quot;</span>) <span class="op">+</span></span>
 <span id="cb30-4"><a href="1.2-ggplot2-data-visualization.html#cb30-4"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>class, <span class="dt">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-37-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="01-r_files/figure-html/unnamed-chunk-35-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="geometric-objects" class="section level3 hasAnchor">
 <h3><span class="header-section-number">1.2.4</span> Geometric objects<a href="1.2-ggplot2-data-visualization.html#geometric-objects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -360,14 +359,14 @@ But unfortunately <code>ggplot2</code> plots only 6 different shapes in a plot! 
 <span id="cb31-7"><a href="1.2-ggplot2-data-visualization.html#cb31-7"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cty, <span class="dt">fill =</span> class)) <span class="op">+</span></span>
 <span id="cb31-8"><a href="1.2-ggplot2-data-visualization.html#cb31-8"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>) <span class="op">+</span></span>
 <span id="cb31-9"><a href="1.2-ggplot2-data-visualization.html#cb31-9"></a><span class="st">  </span><span class="kw">scale_fill_viridis</span>(<span class="dt">discrete =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-39-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="01-r_files/figure-html/unnamed-chunk-37-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>By default <code>ggplot2</code> picks a suitable <code>binwidth</code> but you can specify it explicitely.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="1.2-ggplot2-data-visualization.html#cb32-1"></a>table &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(mpg<span class="op">$</span>class))</span>
 <span id="cb32-2"><a href="1.2-ggplot2-data-visualization.html#cb32-2"></a></span>
 <span id="cb32-3"><a href="1.2-ggplot2-data-visualization.html#cb32-3"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> table) <span class="op">+</span></span>
 <span id="cb32-4"><a href="1.2-ggplot2-data-visualization.html#cb32-4"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Var1, <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>))</span>
 <span id="cb32-5"><a href="1.2-ggplot2-data-visualization.html#cb32-5"></a><span class="co">#&gt; Warning: Ignoring unknown aesthetics: stat</span></span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-40-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="01-r_files/figure-html/unnamed-chunk-38-1.png" width="672" style="display: block; margin: auto;" />
 <!-- Hold --></p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="1.2-ggplot2-data-visualization.html#cb33-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
 <span id="cb33-2"><a href="1.2-ggplot2-data-visualization.html#cb33-2"></a><span class="st">  </span><span class="kw">stat_summary</span>(</span>
@@ -382,7 +381,7 @@ But unfortunately <code>ggplot2</code> plots only 6 different shapes in a plot! 
 <span id="cb33-11"><a href="1.2-ggplot2-data-visualization.html#cb33-11"></a></span>
 <span id="cb33-12"><a href="1.2-ggplot2-data-visualization.html#cb33-12"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
 <span id="cb33-13"><a href="1.2-ggplot2-data-visualization.html#cb33-13"></a><span class="st">  </span><span class="kw">stat_count</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> class))</span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-41-1.png" width="672" style="display: block; margin: auto;" /><img src="01-r_files/figure-html/unnamed-chunk-41-2.png" width="672" style="display: block; margin: auto;" /><img src="01-r_files/figure-html/unnamed-chunk-41-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="01-r_files/figure-html/unnamed-chunk-39-1.png" width="672" style="display: block; margin: auto;" /><img src="01-r_files/figure-html/unnamed-chunk-39-2.png" width="672" style="display: block; margin: auto;" /><img src="01-r_files/figure-html/unnamed-chunk-39-3.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="statistical-transformations" class="section level3 hasAnchor">
@@ -416,14 +415,14 @@ A bar chart is a graph where for each category a bar with a height proportional 
 <span id="cb34-18"><a href="1.2-ggplot2-data-visualization.html#cb34-18"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
 <span id="cb34-19"><a href="1.2-ggplot2-data-visualization.html#cb34-19"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> class, <span class="dt">fill =</span> trans), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></span>
 <span id="cb34-20"><a href="1.2-ggplot2-data-visualization.html#cb34-20"></a><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>()</span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-42-1.png" width="672" style="display: block; margin: auto;" /><img src="01-r_files/figure-html/unnamed-chunk-42-2.png" width="672" style="display: block; margin: auto;" /><img src="01-r_files/figure-html/unnamed-chunk-42-3.png" width="672" style="display: block; margin: auto;" /><img src="01-r_files/figure-html/unnamed-chunk-42-4.png" width="672" style="display: block; margin: auto;" /><img src="01-r_files/figure-html/unnamed-chunk-42-5.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="01-r_files/figure-html/unnamed-chunk-40-1.png" width="672" style="display: block; margin: auto;" /><img src="01-r_files/figure-html/unnamed-chunk-40-2.png" width="672" style="display: block; margin: auto;" /><img src="01-r_files/figure-html/unnamed-chunk-40-3.png" width="672" style="display: block; margin: auto;" /><img src="01-r_files/figure-html/unnamed-chunk-40-4.png" width="672" style="display: block; margin: auto;" /><img src="01-r_files/figure-html/unnamed-chunk-40-5.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="1.2-ggplot2-data-visualization.html#cb35-1"></a><span class="kw">ggplot</span>(</span>
 <span id="cb35-2"><a href="1.2-ggplot2-data-visualization.html#cb35-2"></a>  <span class="dt">data =</span> <span class="kw">filter</span>(mpg, class <span class="op">==</span><span class="st"> &quot;subcompact&quot;</span>),</span>
 <span id="cb35-3"><a href="1.2-ggplot2-data-visualization.html#cb35-3"></a>  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> class, <span class="dt">y =</span> hwy)</span>
 <span id="cb35-4"><a href="1.2-ggplot2-data-visualization.html#cb35-4"></a>) <span class="op">+</span></span>
 <span id="cb35-5"><a href="1.2-ggplot2-data-visualization.html#cb35-5"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
 <span id="cb35-6"><a href="1.2-ggplot2-data-visualization.html#cb35-6"></a><span class="st">  </span><span class="kw">coord_flip</span>()</span></code></pre></div>
-<p><img src="01-r_files/figure-html/unnamed-chunk-43-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="01-r_files/figure-html/unnamed-chunk-41-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="the-layered-grammar-of-graphics" class="section level3 hasAnchor">
 <h3><span class="header-section-number">1.2.8</span> The layered grammar of graphics<a href="1.2-ggplot2-data-visualization.html#the-layered-grammar-of-graphics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -478,7 +477,7 @@ A bar chart is a graph where for each category a bar with a height proportional 
 <ol start="5" style="list-style-type: decimal">
 <li>Examine the structure of the inbuilt dataset <code>iris</code>. How many observations and variables are in the dataset? Using ggplot produce the following scatter plot:</li>
 </ol>
-<p><img src="01-r_files/figure-html/unnamed-chunk-44-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="01-r_files/figure-html/unnamed-chunk-42-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
             </section>
@@ -510,7 +509,7 @@ gitbook.start({
 "instapaper": false,
 "vk": false,
 "whatsapp": false,
-"all": false
+"all": ["github", "twitter"]
 },
 "fontsettings": {
 "theme": "white",
@@ -535,8 +534,10 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "section"
-}
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"info": true
 });
 });
 </script>

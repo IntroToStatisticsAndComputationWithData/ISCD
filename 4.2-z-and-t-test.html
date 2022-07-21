@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.3 Tchebychev Inequality | Introduction to Statistics and Computation with Data</title>
-  <meta name="description" content="2.3 Tchebychev Inequality | Introduction to Statistics and Computation with Data" />
+  <title>4.2 \(z\) and \(t\) test | Introduction to Statistics and Computation with Data</title>
+  <meta name="description" content="4.2 \(z\) and \(t\) test | Introduction to Statistics and Computation with Data" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.3 Tchebychev Inequality | Introduction to Statistics and Computation with Data" />
+  <meta property="og:title" content="4.2 \(z\) and \(t\) test | Introduction to Statistics and Computation with Data" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="BikramHalder/ISCD" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.3 Tchebychev Inequality | Introduction to Statistics and Computation with Data" />
+  <meta name="twitter:title" content="4.2 \(z\) and \(t\) test | Introduction to Statistics and Computation with Data" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="2.2-demoivre-central-limit-theorem.html"/>
-<link rel="next" href="2.4-empirical-distribution-function.html"/>
+<link rel="prev" href="4.1-introduction.html"/>
+<link rel="next" href="4.3-chi2-goodness-of-fit.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -232,16 +232,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="book-image-container">
 	<img class="book-image" src="images/cover.png" />
 </div>
-<div id="tchebychev-inequality" class="section level2 hasAnchor">
-<h2><span class="header-section-number">2.3</span> Tchebychev Inequality<a href="2.3-tchebychev-inequality.html#tchebychev-inequality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="z-and-t-test" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.2</span> <span class="math inline">\(z\)</span> and <span class="math inline">\(t\)</span> test<a href="4.2-z-and-t-test.html#z-and-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="z-test-population-is-nmu-sigma2-and-mu-unknown" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.1</span> <span class="math inline">\(Z\)</span>-test: Population is <span class="math inline">\(N(\mu, \sigma^2)\)</span> and <span class="math inline">\(\mu\)</span> unknown<a href="4.2-z-and-t-test.html#z-test-population-is-nmu-sigma2-and-mu-unknown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose - <span class="math inline">\(X_1, X_2, \ldots, X_{n} \overset{\mathrm{iid}}{\sim} N(\mu, \sigma^2)\)</span> where <span class="math inline">\(\sigma\)</span> is known but <strong><span class="math inline">\(\mu\)</span> is unknown</strong>.</p>
+<p>Let <span class="math inline">\(\mu \in \mathcal{P} = \mathbb{R}\)</span></p>
+<p><u>Hypothesis:</u> <span class="math inline">\(\mu = c \ \text{,i.e.,} \ \ \mathcal{P} = {c} \subset \mathcal{P}\)</span></p>
+<p>Intuitive test statistic: <span class="math inline">\(\overline{X}\)</span> is the estimator of <span class="math inline">\(\mu = c\)</span></p>
+<p><u>Naive test</u></p>
+<p>Check if <span class="math inline">\(\overline{X} = c\)</span>. Say <strong>“<span class="math inline">\(\overline{X}\)</span> is close to <span class="math inline">\(c\)</span>”</strong>(depends on <span class="math inline">\(\sigma\)</span>). Is there a better approach with <span class="math inline">\(\overline{X}?\)</span></p>
+<div class="exercise">
+<p><span id="exr:ex-hw-z-t" class="exercise"><strong>Exercise 4.1  </strong></span><span class="math inline">\(\overline{X} \sim N(c, \frac{\sigma^2}{n})\)</span> if <span class="math inline">\(\mu = c\)</span> ,i.e., hypothesis is true.</p>
+</div>
+<p>which would result, <span class="math inline">\(\sqrt{n}\left(\frac{\overline{X}-c}{\sigma}\right) \sim N(0,1)\)</span>
+Another way to express <strong>“if”</strong> statement: If <span class="math inline">\(Y_1, Y_2, \ldots, Y_{n} \overset{\mathrm{iid}}{\sim} N(c, \sigma^2)\)</span> then <span class="math inline">\(\sqrt{n}\left(\frac{\overline{Y}-c}{\sigma}\right) \sim N(0,1)\)</span></p>
+<p>Here <span class="math inline">\(Y_i\)</span>’s are hypothetical random variables and <span class="math inline">\(N(c, \sigma^2)\)</span> is called <strong>“Null distribution”</strong></p>
+<p>Computing,
+<span class="math display">\[\begin{equation}
+\mathbb{P}\left(\frac{\sqrt{n}(\overline{Y}-c)}{\sigma} \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right) \tag{*}
+\end{equation}\]</span>
+allows us to compute,</p>
+<div class="hypothesis">
+<p><span id="hyp:z-ex-1" class="hypothesis"><strong>Hypothesis 4.1  </strong></span><span class="math inline">\(H_0: \mu = c\)</span> vs <span class="math inline">\(H_A: \mu &gt; c\)</span></p>
+</div>
+<p>The <span class="math inline">\(p-\)</span>value is the value of <span class="math inline">\((*)\)</span></p>
+<p>Fix <span class="math inline">\(\alpha \in (0,1)\)</span> (level of significance).</p>
+<p>If <span class="math inline">\(p-\)</span>value <span class="math inline">\(&lt; \alpha\)</span> then reject the null hypothesis <span class="math inline">\(\mu = c\)</span> in favour of alternate <span class="math inline">\(\mu &gt; c\)</span>.</p>
+<p>If <span class="math inline">\(p-\)</span>value <span class="math inline">\(\geq \alpha\)</span> then there is no evidence to reject the null hypothesis <span class="math inline">\(\mu = c\)</span> in favour of alternate <span class="math inline">\(\mu &gt; c\)</span>.</p>
+<div class="exercise">
+<p><span id="exr:z-ex-2" class="exercise"><strong>Exercise 4.2  </strong></span>Device a computation/test of the following:</p>
+<ul>
+<li><span class="math inline">\(H_0: \mu = c\)</span> vs <span class="math inline">\(H_A: \mu &lt; c\)</span></li>
+<li><span class="math inline">\(H_0: \mu = c\)</span> vs <span class="math inline">\(H_A: \mu \not= c\)</span></li>
+</ul>
+</div>
+<div id="hint-ex-z-t-1" class="hint">
+<p>Hint: Suitably alter the computation
+<span class="math inline">\(\mathbb{P}\left(\frac{\sqrt{n}(\overline{Y}-c)}{\sigma} \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right)\)</span></p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="2.2-demoivre-central-limit-theorem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="2.4-empirical-distribution-function.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.1-introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.3-chi2-goodness-of-fit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -272,7 +310,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/BikramHalder/ISCD/edit/main/02-review-of-basic-prob.Rmd",
+"link": "https://github.com/BikramHalder/ISCD/edit/main/04-hypothesis-test.Rmd",
 "text": "Edit"
 },
 "history": {
