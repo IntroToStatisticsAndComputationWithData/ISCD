@@ -186,7 +186,7 @@ Suppose - $X_1, X_2, \ldots, X_{n} \overset{\mathrm{iid}}{\sim} N(\mu, \sigma^2)
 
 Let $\mu \in \mathcal{P} = \mathbb{R}$
 
-<u>Hypothesis:</u> $\mu = c \ \text{,i.e.,} \ \ \mathcal{P} = {c} \subset \mathcal{P}$
+<u>Hypothesis:</u> $\mu = c \ \text{,i.e.,} \ \ \mathcal{P} = \{c\} \subset \mathcal{P}$
 
 Intuitive test statistic: $\overline{X}$ is the estimator of $\mu = c$
 
@@ -233,6 +233,169 @@ $\mathbb{P}\left(\frac{\sqrt{n}(\overline{Y}-c)}{\sigma} \geq \frac{\sqrt{n}(\ov
 :::
 
 
+### $t-$test: Test for sample mean when variance is unknown
+
+Assume $X \sim N(\mu, \sigma^2)$ & both $\mu$ and $\sigma$ are unknown.
+Let $X_1, X_2, \ldots, X_{n} \overset{\mathrm{iid}}{\sim} N(\mu, \sigma^2)$
+
+::: {.hypothesis #t-ex-1}
+$H_0: \mu=c$ vs $H_A: \mu < c$
+:::
+
+Let $Y_1, Y_2, \ldots, Y_{n}$ be random variables that **"mimic"** the sampling procedure. $Y \sim N(c, s^2)$
+
+Under, $H_0$ ,i.e., assume $\mu = c$
+$$
+\sqrt{n}\left(\frac{\overline{Y}-c}{S} \right) \sim t_{n-1}
+$$
+
+::: {.question}
+$$\begin{align*}
+&\mathbb{P}({\overline{Y}} < \overline{X}) \\
+& = \mathbb{P}\left(\frac{\sqrt{n}(\overline{Y}-c)}{S} < \frac{\sqrt{n}(\overline{X}-c)}{S}\right) \\
+& = \mathbb{P}\left(T < \frac{\sqrt{n}(\overline{X}-c)}{S}\right) = ?
+\end{align*}$$ where $T \sim t_{n-1}$
+:::
+
+Fix $\alpha \in (0,1)$. If $\mathbb{P}\left(T < \frac{\sqrt{n}(\overline{X}-c)}{S}\right) < \alpha$ then reject $H_0$
+
+::: {.exercise #ex-t-1}
+Prescribe the $t-$test when
+
+- $H_0: \mu = c$ vs $H_A: \mu < c$
+- $H_0: \mu = c$ vs $H_A: \mu \not= c$
+:::
+
+
+
+### Log likelihood
+In the genral approach,
+
+- We assume that som random variable $X$ has a **pdf**/**pmf** $f(\cdot | p)$ with $p \in \mathcal{P} \subseteq \mathbb{R}$.
+- Sample $X_1, X_2, \ldots, X_{n} \overset{\mathrm{iid}}{\sim} X$
+- the likelihood function of the given sample $X_1, X_2, \ldots, X_{n}$ is $$L(p; X_1, X_2, \ldots, X_{n}) = \prod_{i=1}^{n} f(X_i | p)$$
+
+Recall that **MLE**, $\hat{p} = {\rm argmax}_{p \in \mathcal{P}}L(p; X_1, X_2, \ldots, X_{n})$ 
+
+Observe that we can view the hypothesis test as a restriction of $\mathcal{P}$ to a smaller subset $\mathcal{P}_0$
+
+For example, $\mathcal{P} = \{c\}$ in the **"intuitive approach"** above, 
+$$
+H_0: \underset{(\mu = c)}{p \in \mathcal{P}_0} \qquad \qquad H_A: \underset{(\mu \not= c)}{p \not\in \mathcal{P}_0}
+$$
+
+### MLE approach under null hypothesis with $p \in \mathcal{P}_0 \subset \mathcal{P}$
+$$\hat{p} = \underset{p \in \mathcal{P}}{\rm argmax} L(p; X_1, X_2, \ldots, X_{n})$$
+
+**Likelihood ratio:** Given, a sample $X_1, X_2, \ldots, X_{n}$, define
+$$ \lambda(X_1, X_2, \ldots, X_{n}) = \frac{L(\hat{p}_0; X_1, X_2, \ldots, X_{n})}{L(\hat{p}; X_1, X_2, \ldots, X_{n})} $$
+as the **Likelihood ratio** and define,
+$$\begin{align*}
+\Lambda(X_1, X_2, \ldots, X_{n}) 
+&= -\log{\lambda(X_1, X_2, \ldots, X_{n})} \\
+&= -\log{\frac{L(\hat{p}_0; X_1, X_2, \ldots, X_{n})}{L(\hat{p}; X_1, X_2, \ldots, X_{n})}} \\
+\end{align*}$$
+as **log-likelihood ratio**.
+
+::: {.exercise #ex-log-liklihood}
+$$
+\text{If  } \mathcal{P}_0 \subseteq \mathcal{P} \text{ then } 0 \leq \frac{L(\hat{p}_0; X_1, X_2, \ldots, X_{n})}{L(\hat{p}; X_1, X_2, \ldots, X_{n})} \leq 1
+$$
+:::
+
+which would imply, 
+$$\begin{align*}
+0 &\leq \Lambda(X_1, X_2, \ldots, X_{n})\\
+&= -\log{\frac{L(\hat{p}_0; X_1, X_2, \ldots, X_{n})}{L(\hat{p}; X_1, X_2, \ldots, X_{n})}}\\
+&= \log{\frac{L(\hat{p}; X_1, X_2, \ldots, X_{n})}{L(\hat{p}_0; X_1, X_2, \ldots, X_{n})}}
+\end{align*}$$
+
+If $\hat{p}$ is further away from $\mathcal{P}_0$ in terms of $L$ then less likely it is that $\mathcal{P}_0$ is true as the null hypothesis ,i.e., for larger values of $\Lambda$
+
+### $z-$test with log-liklihood
+Let, $X \sim N(\mu, \sigma^2)$ with $\mu \in \mathcal{P} = \mathbb{R}$ and $\sigma$ is known. The null and alternate hypothesis be $H_0: \mu = c$ and $H_A: \mu \not= c$ ,i.e., $\mathcal{P}_0 = \{c\}$.  
+
+Now given, a sample $X_1, X_2, \ldots, X_{n}$, the log-likelihood function for $\mu$,
+$$
+L(\mu; X_1, X_2, \ldots, X_{n}) = \prod_{i=1}^{n} \frac{e^{-\frac{(X_i - \mu)^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma}
+$$
+
+::: {.exercise #ex-log-likelihood-2}
+Show that,
+$$\hat{\mu} 
+= \underset{\mu \in \mathcal{P}}{\rm argmax} \ L(\mu; X_1, X_2, \ldots, X_{n}) 
+= \overline{X}$$
+and, $$\hat{\mu}_0 
+= \underset{\mu \in \mathcal{P}_0}{\rm argmax} \ L(\mu; X_1, X_2, \ldots, X_{n}) 
+= c$$
+:::
+
+then we will have,
+\begin{align*}
+\Lambda(X_1, X_2, \ldots, X_{n})
+&= \log{\frac{L(\mu; X_1, X_2, \ldots, X_{n})}{L(\mu_0; X_1, X_2, \ldots, X_{n})}} \\
+&= \log{\frac{L(\overline{X}; X_1, X_2, \ldots, X_{n})}{L(c; X_1, X_2, \ldots, X_{n})}} \\
+&= \log{\frac{\prod_{i=1}^{n} \frac{e^{-\frac{(X_i - \overline{X})^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma}}{\prod_{i=1}^{n} \frac{e^{-\frac{(X_i - c)^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma}}} \\
+&= \frac{1}{2} \frac{n}{\sigma^2}(\overline{X} - c)^2
+= \frac{1}{2} \left( \frac{\sqrt{n}(\overline{X} - c)}{\sigma} \right)^2
+\end{align*}
+
+::: {.exercise #ex-log-liklihood-3}
+Prove that,
+$$
+\log{\frac{\prod_{i=1}^{n} \frac{e^{-\frac{(X_i - \overline{X})^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma}}{\prod_{i=1}^{n} \frac{e^{-\frac{(X_i - c)^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma}}} 
+= \frac{1}{2}\frac{n}{\sigma^2}(\overline{X} - c)^2
+$$
+:::
+
+Let $Y_1, Y_2, \ldots, Y_{n}$ be $\rm iid$ random variables that **"imitate"** sample under $H_0$. We have to check,
+$$
+\underbrace{\mathbb{P}
+\left( 
+  \Lambda(Y_1, Y_2, \ldots, Y_{n}) 
+\geq 
+  \Lambda(X_1, X_2, \ldots, X_{n}) 
+\right)}_{p-\text{value of the test}}
+$$
+
+We know, 
+\begin{align*}
+\Lambda(Y_1, Y_2, \ldots, Y_{n}) \\
+&= \frac{1}{2} \left( \frac{\sqrt{n}(\overline{Y} - c)}{\sigma} \right)^2 \\
+&= \frac{Z^2}{2}
+\end{align*}
+where, $Z = \frac{\sqrt{n}(\overline{Y} - c)}{\sigma} \sim N(0,1)$
+So, one can compute the $p-$value as $\mathbb{P} \left( Z^2 \geq \left( \frac{\sqrt{n}(\overline{Y} - c)}{\sigma} \right)^2 \right)$
+
+### Seeing the mean is larger that **c** or not
+
+Let $X \sim N(\mu, \sigma^2)$ with $\sigma$ known.
+$H_0: \mu \leq c$ vs $H_A: \mu > c$
+
+Sample $X_1, X_2, \ldots, X_{n}$ from population and compute,
+$$
+\Lambda(X_1, X_2, \ldots, X_{n})
+= \log{\frac{L(\hat{\mu}; X_1, X_2, \ldots, X_{n})}{L(\hat{\mu}_0; X_1, X_2, \ldots, X_{n})}}
+$$
+where, $\hat{\mu}_0 = \underset{\mu \in \mathcal{P}_0}{\rm argmax} \ L(\mu; X_1, \ldots, X_n)$ with $\mathcal{P}_0 = (-\infty, c]$
+and, $\hat{\mu} = \underset{\mu \in \mathcal{P}}{\rm argmax} \ L(\mu; X_1, \ldots, X_n)$ with $\mathcal{P} = \mathbb{R}$
+
+::: {.exercise #ex-log-liklihood-4}
+Show the following:
+
+- $\hat{\mu} = \overline{X}$
+- $\hat{\mu}_0 = \underset{\mu \in \mathcal{P}_0}{\rm argmax} \ \prod_{i=1}^{n} \frac{e^{-\frac{(X_i - \mu)^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma} = \min{\{\overline{X}, c\}}$
+- \begin{align*}
+\Lambda(X_1, X_2, \ldots, X_{n}) 
+&= \log{\frac{L(\hat{\mu}; X_1, X_2, \ldots, X_{n})}{L(\hat{\mu}_0; X_1, X_2, \ldots, X_{n})}} \\
+&= \begin{cases}
+0 &{\rm if } \ \overline{X} \leq c \\
+\frac{n(\overline{X} - c)^2}{2\sigma^2} &{\rm if } \ \overline{X} = c
+\end{cases}
+\end{align*}
+:::
+
+And finally, we shall compute the $p-$value as, $\mathbb{P} \left( \frac{\sqrt{n}(\overline{Y} - c)}{\sigma} \geq \frac{\sqrt{n}(\overline{X} - c)}{\sigma} \right) = \mathbb{P} \left( Z \geq \frac{\sqrt{n}(\overline{X} - c)}{\sigma} \right)$
 
 ## $\chi^2$ goodness of fit
 

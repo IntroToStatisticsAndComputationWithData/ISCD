@@ -200,6 +200,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html"><i class="fa fa-check"></i><b>4.2</b> <span class="math inline">\(z\)</span> and <span class="math inline">\(t\)</span> test</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#z-test-population-is-nmu-sigma2-and-mu-unknown"><i class="fa fa-check"></i><b>4.2.1</b> <span class="math inline">\(Z\)</span>-test: Population is <span class="math inline">\(N(\mu, \sigma^2)\)</span> and <span class="math inline">\(\mu\)</span> unknown</a></li>
+<li class="chapter" data-level="4.2.2" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#t-test-test-for-sample-mean-when-variance-is-unknown"><i class="fa fa-check"></i><b>4.2.2</b> <span class="math inline">\(t-\)</span>test: Test for sample mean when variance is unknown</a></li>
+<li class="chapter" data-level="4.2.3" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#log-likelihood"><i class="fa fa-check"></i><b>4.2.3</b> Log likelihood</a></li>
+<li class="chapter" data-level="4.2.4" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#mle-approach-under-null-hypothesis-with-p-in-mathcalp_0-subset-mathcalp"><i class="fa fa-check"></i><b>4.2.4</b> MLE approach under null hypothesis with <span class="math inline">\(p \in \mathcal{P}_0 \subset \mathcal{P}\)</span></a></li>
+<li class="chapter" data-level="4.2.5" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#z-test-with-log-liklihood"><i class="fa fa-check"></i><b>4.2.5</b> <span class="math inline">\(z-\)</span>test with log-liklihood</a></li>
+<li class="chapter" data-level="4.2.6" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#seeing-the-mean-is-larger-that-c-or-not"><i class="fa fa-check"></i><b>4.2.6</b> Seeing the mean is larger that <strong>c</strong> or not</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="4.3-chi2-goodness-of-fit.html"><a href="4.3-chi2-goodness-of-fit.html"><i class="fa fa-check"></i><b>4.3</b> <span class="math inline">\(\chi^2\)</span> goodness of fit</a></li>
 <li class="chapter" data-level="4.4" data-path="4.4-non-parametric-tests.html"><a href="4.4-non-parametric-tests.html"><i class="fa fa-check"></i><b>4.4</b> Non-parametric tests</a></li>
@@ -238,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">4.2.1</span> <span class="math inline">\(Z\)</span>-test: Population is <span class="math inline">\(N(\mu, \sigma^2)\)</span> and <span class="math inline">\(\mu\)</span> unknown<a href="4.2-z-and-t-test.html#z-test-population-is-nmu-sigma2-and-mu-unknown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose - <span class="math inline">\(X_1, X_2, \ldots, X_{n} \overset{\mathrm{iid}}{\sim} N(\mu, \sigma^2)\)</span> where <span class="math inline">\(\sigma\)</span> is known but <strong><span class="math inline">\(\mu\)</span> is unknown</strong>.</p>
 <p>Let <span class="math inline">\(\mu \in \mathcal{P} = \mathbb{R}\)</span></p>
-<p><u>Hypothesis:</u> <span class="math inline">\(\mu = c \ \text{,i.e.,} \ \ \mathcal{P} = {c} \subset \mathcal{P}\)</span></p>
+<p><u>Hypothesis:</u> <span class="math inline">\(\mu = c \ \text{,i.e.,} \ \ \mathcal{P} = \{c\} \subset \mathcal{P}\)</span></p>
 <p>Intuitive test statistic: <span class="math inline">\(\overline{X}\)</span> is the estimator of <span class="math inline">\(\mu = c\)</span></p>
 <p><u>Naive test</u></p>
 <p>Check if <span class="math inline">\(\overline{X} = c\)</span>. Say <strong>“<span class="math inline">\(\overline{X}\)</span> is close to <span class="math inline">\(c\)</span>”</strong>(depends on <span class="math inline">\(\sigma\)</span>). Is there a better approach with <span class="math inline">\(\overline{X}?\)</span></p>
@@ -271,6 +276,152 @@ allows us to compute,</p>
 <p>Hint: Suitably alter the computation
 <span class="math inline">\(\mathbb{P}\left(\frac{\sqrt{n}(\overline{Y}-c)}{\sigma} \geq \frac{\sqrt{n}(\overline{X}-c)}{\sigma}\right)\)</span></p>
 </div>
+</div>
+<div id="t-test-test-for-sample-mean-when-variance-is-unknown" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.2</span> <span class="math inline">\(t-\)</span>test: Test for sample mean when variance is unknown<a href="4.2-z-and-t-test.html#t-test-test-for-sample-mean-when-variance-is-unknown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Assume <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> &amp; both <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are unknown.
+Let <span class="math inline">\(X_1, X_2, \ldots, X_{n} \overset{\mathrm{iid}}{\sim} N(\mu, \sigma^2)\)</span></p>
+<div class="hypothesis">
+<p><span id="hyp:t-ex-1" class="hypothesis"><strong>Hypothesis 4.2  </strong></span><span class="math inline">\(H_0: \mu=c\)</span> vs <span class="math inline">\(H_A: \mu &lt; c\)</span></p>
+</div>
+<p>Let <span class="math inline">\(Y_1, Y_2, \ldots, Y_{n}\)</span> be random variables that <strong>“mimic”</strong> the sampling procedure. <span class="math inline">\(Y \sim N(c, s^2)\)</span></p>
+<p>Under, <span class="math inline">\(H_0\)</span> ,i.e., assume <span class="math inline">\(\mu = c\)</span>
+<span class="math display">\[
+\sqrt{n}\left(\frac{\overline{Y}-c}{S} \right) \sim t_{n-1}
+\]</span></p>
+<div class="question">
+<p><span class="math display">\[\begin{align*}
+&amp;\mathbb{P}({\overline{Y}} &lt; \overline{X}) \\
+&amp; = \mathbb{P}\left(\frac{\sqrt{n}(\overline{Y}-c)}{S} &lt; \frac{\sqrt{n}(\overline{X}-c)}{S}\right) \\
+&amp; = \mathbb{P}\left(T &lt; \frac{\sqrt{n}(\overline{X}-c)}{S}\right) = ?
+\end{align*}\]</span> where <span class="math inline">\(T \sim t_{n-1}\)</span></p>
+</div>
+<p>Fix <span class="math inline">\(\alpha \in (0,1)\)</span>. If <span class="math inline">\(\mathbb{P}\left(T &lt; \frac{\sqrt{n}(\overline{X}-c)}{S}\right) &lt; \alpha\)</span> then reject <span class="math inline">\(H_0\)</span></p>
+<div class="exercise">
+<p><span id="exr:ex-t-1" class="exercise"><strong>Exercise 4.3  </strong></span>Prescribe the <span class="math inline">\(t-\)</span>test when</p>
+<ul>
+<li><span class="math inline">\(H_0: \mu = c\)</span> vs <span class="math inline">\(H_A: \mu &lt; c\)</span></li>
+<li><span class="math inline">\(H_0: \mu = c\)</span> vs <span class="math inline">\(H_A: \mu \not= c\)</span></li>
+</ul>
+</div>
+</div>
+<div id="log-likelihood" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.3</span> Log likelihood<a href="4.2-z-and-t-test.html#log-likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the genral approach,</p>
+<ul>
+<li>We assume that som random variable <span class="math inline">\(X\)</span> has a <strong>pdf</strong>/<strong>pmf</strong> <span class="math inline">\(f(\cdot | p)\)</span> with <span class="math inline">\(p \in \mathcal{P} \subseteq \mathbb{R}\)</span>.</li>
+<li>Sample <span class="math inline">\(X_1, X_2, \ldots, X_{n} \overset{\mathrm{iid}}{\sim} X\)</span></li>
+<li>the likelihood function of the given sample <span class="math inline">\(X_1, X_2, \ldots, X_{n}\)</span> is <span class="math display">\[L(p; X_1, X_2, \ldots, X_{n}) = \prod_{i=1}^{n} f(X_i | p)\]</span></li>
+</ul>
+<p>Recall that <strong>MLE</strong>, <span class="math inline">\(\hat{p} = {\rm argmax}_{p \in \mathcal{P}}L(p; X_1, X_2, \ldots, X_{n})\)</span></p>
+<p>Observe that we can view the hypothesis test as a restriction of <span class="math inline">\(\mathcal{P}\)</span> to a smaller subset <span class="math inline">\(\mathcal{P}_0\)</span></p>
+<p>For example, <span class="math inline">\(\mathcal{P} = \{c\}\)</span> in the <strong>“intuitive approach”</strong> above,
+<span class="math display">\[
+H_0: \underset{(\mu = c)}{p \in \mathcal{P}_0} \qquad \qquad H_A: \underset{(\mu \not= c)}{p \not\in \mathcal{P}_0}
+\]</span></p>
+</div>
+<div id="mle-approach-under-null-hypothesis-with-p-in-mathcalp_0-subset-mathcalp" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.4</span> MLE approach under null hypothesis with <span class="math inline">\(p \in \mathcal{P}_0 \subset \mathcal{P}\)</span><a href="4.2-z-and-t-test.html#mle-approach-under-null-hypothesis-with-p-in-mathcalp_0-subset-mathcalp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[\hat{p} = \underset{p \in \mathcal{P}}{\rm argmax} L(p; X_1, X_2, \ldots, X_{n})\]</span></p>
+<p><strong>Likelihood ratio:</strong> Given, a sample <span class="math inline">\(X_1, X_2, \ldots, X_{n}\)</span>, define
+<span class="math display">\[ \lambda(X_1, X_2, \ldots, X_{n}) = \frac{L(\hat{p}_0; X_1, X_2, \ldots, X_{n})}{L(\hat{p}; X_1, X_2, \ldots, X_{n})} \]</span>
+as the <strong>Likelihood ratio</strong> and define,
+<span class="math display">\[\begin{align*}
+\Lambda(X_1, X_2, \ldots, X_{n}) 
+&amp;= -\log{\lambda(X_1, X_2, \ldots, X_{n})} \\
+&amp;= -\log{\frac{L(\hat{p}_0; X_1, X_2, \ldots, X_{n})}{L(\hat{p}; X_1, X_2, \ldots, X_{n})}} \\
+\end{align*}\]</span>
+as <strong>log-likelihood ratio</strong>.</p>
+<div class="exercise">
+<p><span id="exr:ex-log-liklihood" class="exercise"><strong>Exercise 4.4  </strong></span><span class="math display">\[
+\text{If  } \mathcal{P}_0 \subseteq \mathcal{P} \text{ then } 0 \leq \frac{L(\hat{p}_0; X_1, X_2, \ldots, X_{n})}{L(\hat{p}; X_1, X_2, \ldots, X_{n})} \leq 1
+\]</span></p>
+</div>
+<p>which would imply,
+<span class="math display">\[\begin{align*}
+0 &amp;\leq \Lambda(X_1, X_2, \ldots, X_{n})\\
+&amp;= -\log{\frac{L(\hat{p}_0; X_1, X_2, \ldots, X_{n})}{L(\hat{p}; X_1, X_2, \ldots, X_{n})}}\\
+&amp;= \log{\frac{L(\hat{p}; X_1, X_2, \ldots, X_{n})}{L(\hat{p}_0; X_1, X_2, \ldots, X_{n})}}
+\end{align*}\]</span></p>
+<p>If <span class="math inline">\(\hat{p}\)</span> is further away from <span class="math inline">\(\mathcal{P}_0\)</span> in terms of <span class="math inline">\(L\)</span> then less likely it is that <span class="math inline">\(\mathcal{P}_0\)</span> is true as the null hypothesis ,i.e., for larger values of <span class="math inline">\(\Lambda\)</span></p>
+</div>
+<div id="z-test-with-log-liklihood" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.5</span> <span class="math inline">\(z-\)</span>test with log-liklihood<a href="4.2-z-and-t-test.html#z-test-with-log-liklihood" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let, <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> with <span class="math inline">\(\mu \in \mathcal{P} = \mathbb{R}\)</span> and <span class="math inline">\(\sigma\)</span> is known. The null and alternate hypothesis be <span class="math inline">\(H_0: \mu = c\)</span> and <span class="math inline">\(H_A: \mu \not= c\)</span> ,i.e., <span class="math inline">\(\mathcal{P}_0 = \{c\}\)</span>.</p>
+<p>Now given, a sample <span class="math inline">\(X_1, X_2, \ldots, X_{n}\)</span>, the log-likelihood function for <span class="math inline">\(\mu\)</span>,
+<span class="math display">\[
+L(\mu; X_1, X_2, \ldots, X_{n}) = \prod_{i=1}^{n} \frac{e^{-\frac{(X_i - \mu)^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma}
+\]</span></p>
+<div class="exercise">
+<p><span id="exr:ex-log-likelihood-2" class="exercise"><strong>Exercise 4.5  </strong></span>Show that,
+<span class="math display">\[\hat{\mu} 
+= \underset{\mu \in \mathcal{P}}{\rm argmax} \ L(\mu; X_1, X_2, \ldots, X_{n}) 
+= \overline{X}\]</span>
+and, <span class="math display">\[\hat{\mu}_0 
+= \underset{\mu \in \mathcal{P}_0}{\rm argmax} \ L(\mu; X_1, X_2, \ldots, X_{n}) 
+= c\]</span></p>
+</div>
+<p>then we will have,
+<span class="math display">\[\begin{align*}
+\Lambda(X_1, X_2, \ldots, X_{n})
+&amp;= \log{\frac{L(\mu; X_1, X_2, \ldots, X_{n})}{L(\mu_0; X_1, X_2, \ldots, X_{n})}} \\
+&amp;= \log{\frac{L(\overline{X}; X_1, X_2, \ldots, X_{n})}{L(c; X_1, X_2, \ldots, X_{n})}} \\
+&amp;= \log{\frac{\prod_{i=1}^{n} \frac{e^{-\frac{(X_i - \overline{X})^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma}}{\prod_{i=1}^{n} \frac{e^{-\frac{(X_i - c)^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma}}} \\
+&amp;= \frac{1}{2} \frac{n}{\sigma^2}(\overline{X} - c)^2
+= \frac{1}{2} \left( \frac{\sqrt{n}(\overline{X} - c)}{\sigma} \right)^2
+\end{align*}\]</span></p>
+<div class="exercise">
+<p><span id="exr:ex-log-liklihood-3" class="exercise"><strong>Exercise 4.6  </strong></span>Prove that,
+<span class="math display">\[
+\log{\frac{\prod_{i=1}^{n} \frac{e^{-\frac{(X_i - \overline{X})^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma}}{\prod_{i=1}^{n} \frac{e^{-\frac{(X_i - c)^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma}}} 
+= \frac{1}{2}\frac{n}{\sigma^2}(\overline{X} - c)^2
+\]</span></p>
+</div>
+<p>Let <span class="math inline">\(Y_1, Y_2, \ldots, Y_{n}\)</span> be <span class="math inline">\(\rm iid\)</span> random variables that <strong>“imitate”</strong> sample under <span class="math inline">\(H_0\)</span>. We have to check,
+<span class="math display">\[
+\underbrace{\mathbb{P}
+\left( 
+  \Lambda(Y_1, Y_2, \ldots, Y_{n}) 
+\geq 
+  \Lambda(X_1, X_2, \ldots, X_{n}) 
+\right)}_{p-\text{value of the test}}
+\]</span></p>
+<p>We know,
+<span class="math display">\[\begin{align*}
+\Lambda(Y_1, Y_2, \ldots, Y_{n}) \\
+&amp;= \frac{1}{2} \left( \frac{\sqrt{n}(\overline{Y} - c)}{\sigma} \right)^2 \\
+&amp;= \frac{Z^2}{2}
+\end{align*}\]</span>
+where, <span class="math inline">\(Z = \frac{\sqrt{n}(\overline{Y} - c)}{\sigma} \sim N(0,1)\)</span>
+So, one can compute the <span class="math inline">\(p-\)</span>value as <span class="math inline">\(\mathbb{P} \left( Z^2 \geq \left( \frac{\sqrt{n}(\overline{Y} - c)}{\sigma} \right)^2 \right)\)</span></p>
+</div>
+<div id="seeing-the-mean-is-larger-that-c-or-not" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.6</span> Seeing the mean is larger that <strong>c</strong> or not<a href="4.2-z-and-t-test.html#seeing-the-mean-is-larger-that-c-or-not" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> with <span class="math inline">\(\sigma\)</span> known.
+<span class="math inline">\(H_0: \mu \leq c\)</span> vs <span class="math inline">\(H_A: \mu &gt; c\)</span></p>
+<p>Sample <span class="math inline">\(X_1, X_2, \ldots, X_{n}\)</span> from population and compute,
+<span class="math display">\[
+\Lambda(X_1, X_2, \ldots, X_{n})
+= \log{\frac{L(\hat{\mu}; X_1, X_2, \ldots, X_{n})}{L(\hat{\mu}_0; X_1, X_2, \ldots, X_{n})}}
+\]</span>
+where, <span class="math inline">\(\hat{\mu}_0 = \underset{\mu \in \mathcal{P}_0}{\rm argmax} \ L(\mu; X_1, \ldots, X_n)\)</span> with <span class="math inline">\(\mathcal{P}_0 = (-\infty, c]\)</span>
+and, <span class="math inline">\(\hat{\mu} = \underset{\mu \in \mathcal{P}}{\rm argmax} \ L(\mu; X_1, \ldots, X_n)\)</span> with <span class="math inline">\(\mathcal{P} = \mathbb{R}\)</span></p>
+<div class="exercise">
+<p><span id="exr:ex-log-liklihood-4" class="exercise"><strong>Exercise 4.7  </strong></span>Show the following:</p>
+<ul>
+<li><span class="math inline">\(\hat{\mu} = \overline{X}\)</span></li>
+<li><span class="math inline">\(\hat{\mu}_0 = \underset{\mu \in \mathcal{P}_0}{\rm argmax} \ \prod_{i=1}^{n} \frac{e^{-\frac{(X_i - \mu)^2}{2\sigma^2}}}{\sqrt{2\pi}\sigma} = \min{\{\overline{X}, c\}}\)</span></li>
+<li><span class="math display">\[\begin{align*}
+\Lambda(X_1, X_2, \ldots, X_{n}) 
+&amp;= \log{\frac{L(\hat{\mu}; X_1, X_2, \ldots, X_{n})}{L(\hat{\mu}_0; X_1, X_2, \ldots, X_{n})}} \\
+&amp;= \begin{cases}
+0 &amp;{\rm if } \ \overline{X} \leq c \\
+\frac{n(\overline{X} - c)^2}{2\sigma^2} &amp;{\rm if } \ \overline{X} = c
+\end{cases}
+\end{align*}\]</span></li>
+</ul>
+</div>
+<p>And finally, we shall compute the <span class="math inline">\(p-\)</span>value as, <span class="math inline">\(\mathbb{P} \left( \frac{\sqrt{n}(\overline{Y} - c)}{\sigma} \geq \frac{\sqrt{n}(\overline{X} - c)}{\sigma} \right) = \mathbb{P} \left( Z \geq \frac{\sqrt{n}(\overline{X} - c)}{\sigma} \right)\)</span></p>
 </div>
 </div>
             </section>
