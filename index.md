@@ -4,6 +4,7 @@ author:
    - Siva Athreya
    - Bikram Halder
 site: bookdown::bookdown_site
+math: false
 documentclass: krantz
 bibliography: [book.bib, packages.bib] 
 link-citations: yes

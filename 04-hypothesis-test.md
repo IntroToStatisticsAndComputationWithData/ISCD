@@ -22,6 +22,14 @@ For example,
 - Does smoking reduce life expectency?
 - Is treatment **A** genuinely different from treatment **B**?
 
+In all the above three cases, you take an interest in making an inference about how the value of the parameter relates to a specific numerical value. Is it less than, equal to or greater than a specified given number? This kind of inference is called **test of hypothesis**.
+
+### Elements of Hypothesis testing
+
+::: {.definition #hypothesis-defn name="Hypothesis"}
+A statistical **hypothesis** is a statement about the numerical value of a population parameter. 
+:::
+
 What hypothesis testing is?
 You hypothesise some statement about the data and develop a test which will tell you wheather the hypothesis is resonable or not. And, these are the key steps of hypothesis testing.
 To execute a hypothesis testing we will 
@@ -29,7 +37,7 @@ To execute a hypothesis testing we will
 - **first**, Make a conjecture
 - **second**, Perform some probabilistic and statistical computation to test the conjecture.
 
-Here you will see many application of those probabilistic distributions you learnt earlier, appearing in different tests. And, since the hypothesis is verified with sample data, statistical stuffs will also appear.
+Here you will see many application of those probabilistic distributions you learnt earlier, appearing in different tests.
 
 . In the computation step you will compute the likeliness of the 
 
@@ -132,7 +140,7 @@ If the chance of getting affected by the disease doesn't depend on wheather the 
 
 $$
 X_{ij} = \begin{cases}
-\text{# of participants given treatment $i$ and had outcome $j$}
+\text{\# of participants given treatment $i$ and had outcome $j$}
 \end{cases}
 $$
 
@@ -180,7 +188,7 @@ Device a computation to test the hypothesis, i.e., find a test statistic $\equiv
 
 ## $z$ and $t$ test
 
-### $Z$-test: Population is $N(\mu, \sigma^2)$ and $\mu$ unknown
+### $z-$test: Population is $N(\mu, \sigma^2)$ and $\mu$ unknown
 
 Suppose - $X_1, X_2, \ldots, X_{n} \overset{\mathrm{iid}}{\sim} N(\mu, \sigma^2)$ where $\sigma$ is known but **$\mu$ is unknown**.
 
@@ -250,11 +258,11 @@ $$
 $$
 
 ::: {.question}
-$$\begin{align*}
+\begin{align*}
 &\mathbb{P}({\overline{Y}} < \overline{X}) \\
 & = \mathbb{P}\left(\frac{\sqrt{n}(\overline{Y}-c)}{S} < \frac{\sqrt{n}(\overline{X}-c)}{S}\right) \\
 & = \mathbb{P}\left(T < \frac{\sqrt{n}(\overline{X}-c)}{S}\right) = ?
-\end{align*}$$ where $T \sim t_{n-1}$
+\end{align*} where $T \sim t_{n-1}$
 :::
 
 Fix $\alpha \in (0,1)$. If $\mathbb{P}\left(T < \frac{\sqrt{n}(\overline{X}-c)}{S}\right) < \alpha$ then reject $H_0$
@@ -304,11 +312,11 @@ $$
 :::
 
 which would imply, 
-$$\begin{align*}
+\begin{align*}
 0 &\leq \Lambda(X_1, X_2, \ldots, X_{n})\\
 &= -\log{\frac{L(\hat{p}_0; X_1, X_2, \ldots, X_{n})}{L(\hat{p}; X_1, X_2, \ldots, X_{n})}}\\
 &= \log{\frac{L(\hat{p}; X_1, X_2, \ldots, X_{n})}{L(\hat{p}_0; X_1, X_2, \ldots, X_{n})}}
-\end{align*}$$
+\end{align*}
 
 If $\hat{p}$ is further away from $\mathcal{P}_0$ in terms of $L$ then less likely it is that $\mathcal{P}_0$ is true as the null hypothesis ,i.e., for larger values of $\Lambda$
 

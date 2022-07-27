@@ -86,7 +86,8 @@ h4,
 h5,
 h6 {
 	font-weight: normal;
-	color: #21918c; /* headings */
+	color: #21918c;
+	/* headings */
 }
 
 h1.title {
@@ -95,7 +96,8 @@ h1.title {
 
 .book .book-body .page-wrapper .page-inner section.normal strong {
 	font-weight: 600;
-	color: #3b528b; /* for bold faces in text */
+	color: #3b528b;
+	/* for bold faces in text */
 }
 
 .book-body>p>img {
@@ -103,9 +105,20 @@ h1.title {
 }
 
 b {
-	color: #440154; /* for section bold faces */
+	color: #440154;
+	/* for section bold faces */
 }
 
-.hypothesis{
-	background-color: bisque;
+div.hypothesis {
+	padding: 2% 4%;
+	margin-bottom: 10px;
+	background-color: #b7f1ee;
+	border-radius: 10px;
+}
+
+div.definition {
+	padding: 2% 4%;
+	margin-bottom: 10px;
+	background-color: #c6d2f0;
+	border-radius: 10px;
 }
