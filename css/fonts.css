@@ -5,40 +5,145 @@
 	font-display: block;
 	src: url("../assets/fonts/Inter-roman.latin.var.woff2") format("woff2");
 }
+
 @font-face {
 	font-family: "Inter var";
 	font-style: italic;
-	font-weight: 100 900;
+	font-weight: 100 600;
 	font-display: block;
 	src: url("../assets/fonts/Inter-italic.latin.var.woff2") format("woff2");
 	font-named-instance: "Italic";
 }
+
+@font-face {
+	font-family: "Inter var";
+	font-style: italic;
+	font-weight: 600 700;
+	font-display: block;
+	src: url("../assets/fonts/Inter-SemiBold.ttf") format("ttf");
+	font-named-instance: "Bold";
+}
+
+@font-face {
+	font-family: "Inter var";
+	font-style: italic;
+	font-weight: 700 800;
+	font-display: block;
+	src: url("../assets/fonts/Inter-Bold.ttf") format("ttf");
+	font-named-instance: "Bold";
+}
+
+@font-face {
+	font-family: "Inter var";
+	font-style: italic;
+	font-weight: 800 900;
+	font-display: block;
+	src: url("../assets/fonts/Inter-ExtraBold.ttf") format("ttf");
+	font-named-instance: "Bold";
+}
+
 @font-face {
 	font-family: "Monaco for Powerline";
 	font-style: normal;
 	font-weight: 100 900;
 	font-display: block;
-	src: url("../assets/fonts/Monaco-for-Powerline.woff2") format("woff2");
+	src: url("../assets/fonts/Monaco-for-Powerline.woff2") format("ttf");
 }
-@font-face {
+
+.book-summary,
+.font-family-1 {
+	font-family: "Inter var", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Monaco for Powerline",
+		"Helvetica Neue", Arial, "Source Sans Pro", Roboto, "Noto Sans", sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Gloria Hallelujah", cursive !important;
+	-webkit-font-smoothing: subpixel-antialiased;
+	font-feature-settings: "case" 1, "cpsp" 1, "dlig" 1, "cv01" 1, "cv02", "cv03" 1, "cv04" 1;
+	font-variation-settings: "wght" 450;
+	font-variant: common-ligatures contextual;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal code,
+.book .book-body .page-wrapper .page-inner section.normal pre {
+	font-family: Monaco, "Monaco for Powerline", "Fira Code", Consolas,
+		"Liberation Mono",
+		Menlo,
+		Courier,
+		monospace;
+	-webkit-font-smoothing: subpixel-antialiased;
+	font-feature-settings: "case" 1, "cpsp" 1, "dlig" 1, "cv01" 1, "cv02", "cv03" 1, "cv04" 1;
+	font-variation-settings: "wght" 450;
+	font-variant: common-ligatures contextual;
+}@font-face {
 	font-family: "Inter var";
 	font-style: normal;
 	font-weight: 100 900;
 	font-display: block;
 	src: url("../assets/fonts/Inter-roman.latin.var.woff2") format("woff2");
 }
+
 @font-face {
 	font-family: "Inter var";
 	font-style: italic;
-	font-weight: 100 900;
+	font-weight: 100 600;
 	font-display: block;
 	src: url("../assets/fonts/Inter-italic.latin.var.woff2") format("woff2");
 	font-named-instance: "Italic";
 }
+
+@font-face {
+	font-family: "Inter var";
+	font-style: italic;
+	font-weight: 600 700;
+	font-display: block;
+	src: url("../assets/fonts/Inter-SemiBold.ttf") format("ttf");
+	font-named-instance: "Bold";
+}
+
+@font-face {
+	font-family: "Inter var";
+	font-style: italic;
+	font-weight: 700 800;
+	font-display: block;
+	src: url("../assets/fonts/Inter-Bold.ttf") format("ttf");
+	font-named-instance: "Bold";
+}
+
+@font-face {
+	font-family: "Inter var";
+	font-style: italic;
+	font-weight: 800 900;
+	font-display: block;
+	src: url("../assets/fonts/Inter-ExtraBold.ttf") format("ttf");
+	font-named-instance: "Bold";
+}
+
 @font-face {
 	font-family: "Monaco for Powerline";
 	font-style: normal;
 	font-weight: 100 900;
 	font-display: block;
-	src: url("../assets/fonts/Monaco-for-Powerline.woff2") format("woff2");
+	src: url("../assets/fonts/Monaco-for-Powerline.woff2") format("ttf");
+}
+
+.book-summary,
+.font-family-1 {
+	font-family: "Inter var", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Monaco for Powerline",
+		"Helvetica Neue", Arial, "Source Sans Pro", Roboto, "Noto Sans", sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Gloria Hallelujah", cursive !important;
+	-webkit-font-smoothing: subpixel-antialiased;
+	font-feature-settings: "case" 1, "cpsp" 1, "dlig" 1, "cv01" 1, "cv02", "cv03" 1, "cv04" 1;
+	font-variation-settings: "wght" 450;
+	font-variant: common-ligatures contextual;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal code,
+.book .book-body .page-wrapper .page-inner section.normal pre {
+	font-family: Monaco, "Monaco for Powerline", "Fira Code", Consolas,
+		"Liberation Mono",
+		Menlo,
+		Courier,
+		monospace;
+	-webkit-font-smoothing: subpixel-antialiased;
+	font-feature-settings: "case" 1, "cpsp" 1, "dlig" 1, "cv01" 1, "cv02", "cv03" 1, "cv04" 1;
+	font-variation-settings: "wght" 450;
+	font-variant: common-ligatures contextual;
 }

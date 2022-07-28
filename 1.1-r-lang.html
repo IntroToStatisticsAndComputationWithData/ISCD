@@ -76,16 +76,14 @@
 ></script>
 
 <script>
-  function removeUndesiredStuffs() {
-    const undesiredStuffs = document.getElementsByClassName("katex-mathml")
-    for (const element of undesiredStuffs) {
-      element.remove()
-    }
-    // console.clear()
-  }
   window.onload = () => {
-    for (let i = 0; i < 5; i++) {
-      removeUndesiredStuffs()
+    var threshHold = 10
+    while (threshHold--) {
+      let undesiredStuffs = document.getElementsByClassName("katex-mathml")
+      for (let element of undesiredStuffs) {
+        element.remove()
+        // console.clear()
+      }
     }
   }
 </script>

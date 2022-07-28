@@ -1,0 +1,33 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+
+.header-section-number {
+  padding-right: 0.2em;
+  font-weight: 500;
+}
+
+.level1 .header-section-number {
+  display: inline-block;
+  border-bottom: 3px solid;
+}
+
+.level1 h1 {
+  border-bottom: 1px solid;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  color: #21918c;
+  /* headings */
+}
+
+h1.title {
+  font-weight: 700;
+}

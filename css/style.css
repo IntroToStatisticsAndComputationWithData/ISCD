@@ -1,101 +1,14 @@
 @import url("./fonts.css");
+@import url("./code.css");
+@import url("./cap.adjust.css");
+@import url("./katex.adjust.css");
 
 html {
 	scroll-behavior: smooth !important;
 }
 
-body {
-	font-family: "Inter var", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Monaco for Powerline", Roboto,
-		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-		"Noto Color Emoji", "Gloria Hallelujah", cursive;
-	-webkit-font-smoothing: subpixel-antialiased;
-	font-feature-settings: "case" 1, "cpsp" 1, "dlig" 1, "cv01" 1, "cv02", "cv03" 1, "cv04" 1;
-	font-variation-settings: "wght" 450;
-	font-variant: common-ligatures contextual;
-}
-
-p.caption {
-	color: #777;
-	margin-top: 10px;
-}
-
-p code {
-	white-space: inherit;
-}
-
-pre {
-	word-break: normal;
-	word-wrap: normal;
-}
-
-pre code {
-	white-space: inherit;
-}
-
-p>code {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-pre>code {
-	border-radius: 0 0 6px 6px;
-}
-
-p.flushright {
-	text-align: right;
-}
-
-code {
-	border-radius: 10px;
-}
-
-div>.sourceCode {
-	border-radius: 6px;
-}
-
-.r {
-	font-family: Monaco, "Monaco for Powerline", "Fira Code", monospace;
-}
-
-blockquote>p:last-child {
-	text-align: right;
-}
-
-blockquote>p:first-child {
-	text-align: inherit;
-}
-
-.header-section-number {
-	padding-right: 0.2em;
-	font-weight: 500;
-}
-
-.level1 .header-section-number {
-	display: inline-block;
-	border-bottom: 3px solid;
-}
-
-.level1 h1 {
-	border-bottom: 1px solid;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-weight: normal;
-	color: #21918c;
-	/* headings */
-}
-
-h1.title {
-	font-weight: 700;
-}
-
 .book .book-body .page-wrapper .page-inner section.normal strong {
-	font-weight: 600;
+	font-weight: bold;
 	color: #3b528b;
 	/* for bold faces in text */
 }
@@ -116,9 +29,14 @@ div.hypothesis {
 	border-radius: 10px;
 }
 
+div.hypothesis p,
+div.definition p {
+	margin-bottom: 0px !important;
+}
+
 div.definition {
 	padding: 2% 4%;
 	margin-bottom: 10px;
-	background-color: #c6d2f0;
+	background-color: #d8e219;
 	border-radius: 10px;
 }
