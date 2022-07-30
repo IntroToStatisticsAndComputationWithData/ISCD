@@ -47,7 +47,7 @@
 	font-style: normal;
 	font-weight: 100 900;
 	font-display: block;
-	src: url("../assets/fonts/Monaco-for-Powerline.woff2") format("ttf");
+	src: url("../assets/fonts/Monaco-for-Powerline.woff2") format("woff2");
 }
 
 .book-summary,
@@ -121,7 +121,7 @@
 	font-style: normal;
 	font-weight: 100 900;
 	font-display: block;
-	src: url("../assets/fonts/Monaco-for-Powerline.woff2") format("ttf");
+	src: url("../assets/fonts/Monaco-for-Powerline.woff2") format("woff2");
 }
 
 .book-summary,

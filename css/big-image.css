@@ -4,17 +4,17 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	height: 390px;
+	height: 300px;
 	/*background-image: url("images/books.jpg");*/
 	background-color: #eef1f1;
 }
 
 .book-image {
 	width: 100%;
-	height: 390px;
+	height: 300px;
 	object-fit: cover;
 }
 
 .page-inner {
-	padding-top: 440px !important;
+	padding-top: 350px !important;
 }

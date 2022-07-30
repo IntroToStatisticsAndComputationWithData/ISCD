@@ -1,9 +1,11 @@
 def:hypothesis-defn
+exr:ex-intro-1
 exr:ex-hw-z-t
 hyp:z-ex-1
 exr:z-ex-2
 hyp:t-ex-1
 exr:ex-t-1
+hyp:z-t-app-1
 exr:ex-log-liklihood
 exr:ex-log-likelihood-2
 exr:ex-log-liklihood-3
@@ -74,11 +76,13 @@ t-confidence-interval
 hypothesis-testing
 introduction
 elements-of-hypothesis-testing
-exercise
 z-and-t-test
 z-test-population-is-nmu-sigma2-and-mu-unknown
 t-test-test-for-sample-mean-when-variance-is-unknown
-log-likelihood
+applications
+test-for-equality-of-mean-when-variance-is-known
+test-for-proportions-when-variance-is-unknown
+likelihood-approach
 mle-approach-under-null-hypothesis-with-p-in-mathcalp_0-subset-mathcalp
 z-test-with-log-liklihood
 seeing-the-mean-is-larger-that-c-or-not

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.3 \(\chi^2\) goodness of fit | Introduction to Statistics and Computation with Data</title>
-  <meta name="description" content="4.3 \(\chi^2\) goodness of fit | Introduction to Statistics and Computation with Data" />
+  <title>4.4 \(\chi^2\) goodness of fit | Introduction to Statistics and Computation with Data</title>
+  <meta name="description" content="4.4 \(\chi^2\) goodness of fit | Introduction to Statistics and Computation with Data" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.3 \(\chi^2\) goodness of fit | Introduction to Statistics and Computation with Data" />
+  <meta property="og:title" content="4.4 \(\chi^2\) goodness of fit | Introduction to Statistics and Computation with Data" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="BikramHalder/ISCD" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.3 \(\chi^2\) goodness of fit | Introduction to Statistics and Computation with Data" />
+  <meta name="twitter:title" content="4.4 \(\chi^2\) goodness of fit | Introduction to Statistics and Computation with Data" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="4.2-z-and-t-test.html"/>
-<link rel="next" href="4.4-non-parametric-tests.html"/>
+<link rel="prev" href="4.3-likelihood-approach.html"/>
+<link rel="next" href="4.5-non-parametric-tests.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -231,18 +231,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a><ul>
 <li class="chapter" data-level="4.1" data-path="4.1-introduction.html"><a href="4.1-introduction.html"><i class="fa fa-check"></i><b>4.1</b> Introduction</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="4.1-introduction.html"><a href="4.1-introduction.html#elements-of-hypothesis-testing"><i class="fa fa-check"></i><b>4.1.1</b> Elements of Hypothesis testing</a></li>
-<li class="chapter" data-level="4.1.2" data-path="4.1-introduction.html"><a href="4.1-introduction.html#exercise"><i class="fa fa-check"></i><b>4.1.2</b> Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html"><i class="fa fa-check"></i><b>4.2</b> <span class="math inline">\(z\)</span> and <span class="math inline">\(t\)</span> test</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#z-test-population-is-nmu-sigma2-and-mu-unknown"><i class="fa fa-check"></i><b>4.2.1</b> <span class="math inline">\(z-\)</span>test: Population is <span class="math inline">\(N(\mu, \sigma^2)\)</span> and <span class="math inline">\(\mu\)</span> unknown</a></li>
 <li class="chapter" data-level="4.2.2" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#t-test-test-for-sample-mean-when-variance-is-unknown"><i class="fa fa-check"></i><b>4.2.2</b> <span class="math inline">\(t-\)</span>test: Test for sample mean when variance is unknown</a></li>
-<li class="chapter" data-level="4.2.3" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#log-likelihood"><i class="fa fa-check"></i><b>4.2.3</b> Log likelihood</a></li>
-<li class="chapter" data-level="4.2.4" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#mle-approach-under-null-hypothesis-with-p-in-mathcalp_0-subset-mathcalp"><i class="fa fa-check"></i><b>4.2.4</b> MLE approach under null hypothesis with <span class="math inline">\(p \in \mathcal{P}_0 \subset \mathcal{P}\)</span></a></li>
-<li class="chapter" data-level="4.2.5" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#z-test-with-log-liklihood"><i class="fa fa-check"></i><b>4.2.5</b> <span class="math inline">\(z-\)</span>test with log-liklihood</a></li>
-<li class="chapter" data-level="4.2.6" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#seeing-the-mean-is-larger-that-c-or-not"><i class="fa fa-check"></i><b>4.2.6</b> Seeing the mean is larger that <strong>c</strong> or not</a></li>
+<li class="chapter" data-level="4.2.3" data-path="4.2-z-and-t-test.html"><a href="4.2-z-and-t-test.html#applications"><i class="fa fa-check"></i><b>4.2.3</b> Applications</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="4.3-chi2-goodness-of-fit.html"><a href="4.3-chi2-goodness-of-fit.html"><i class="fa fa-check"></i><b>4.3</b> <span class="math inline">\(\chi^2\)</span> goodness of fit</a></li>
-<li class="chapter" data-level="4.4" data-path="4.4-non-parametric-tests.html"><a href="4.4-non-parametric-tests.html"><i class="fa fa-check"></i><b>4.4</b> Non-parametric tests</a></li>
+<li class="chapter" data-level="4.3" data-path="4.3-likelihood-approach.html"><a href="4.3-likelihood-approach.html"><i class="fa fa-check"></i><b>4.3</b> Likelihood approach</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4.3-likelihood-approach.html"><a href="4.3-likelihood-approach.html#mle-approach-under-null-hypothesis-with-p-in-mathcalp_0-subset-mathcalp"><i class="fa fa-check"></i><b>4.3.1</b> MLE approach under null hypothesis with <span class="math inline">\(p \in \mathcal{P}_0 \subset \mathcal{P}\)</span></a></li>
+<li class="chapter" data-level="4.3.2" data-path="4.3-likelihood-approach.html"><a href="4.3-likelihood-approach.html#z-test-with-log-liklihood"><i class="fa fa-check"></i><b>4.3.2</b> <span class="math inline">\(z-\)</span>test with log-liklihood</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4.3-likelihood-approach.html"><a href="4.3-likelihood-approach.html#seeing-the-mean-is-larger-that-c-or-not"><i class="fa fa-check"></i><b>4.3.3</b> Seeing the mean is larger that <strong>c</strong> or not</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4.4-chi2-goodness-of-fit.html"><a href="4.4-chi2-goodness-of-fit.html"><i class="fa fa-check"></i><b>4.4</b> <span class="math inline">\(\chi^2\)</span> goodness of fit</a></li>
+<li class="chapter" data-level="4.5" data-path="4.5-non-parametric-tests.html"><a href="4.5-non-parametric-tests.html"><i class="fa fa-check"></i><b>4.5</b> Non-parametric tests</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-resampling-methods-jackknife-and-bootstrap.html"><a href="5-resampling-methods-jackknife-and-bootstrap.html"><i class="fa fa-check"></i><b>5</b> Resampling Methods: Jackknife and Bootstrap</a></li>
 <li class="divider"></li>
@@ -273,15 +274,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 	<img class="book-image" src="images/cover.png" />
 </div>
 <div id="chi2-goodness-of-fit" class="section level2 hasAnchor">
-<h2><span class="header-section-number">4.3</span> <span class="math inline">\(\chi^2\)</span> goodness of fit<a href="4.3-chi2-goodness-of-fit.html#chi2-goodness-of-fit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">4.4</span> <span class="math inline">\(\chi^2\)</span> goodness of fit<a href="4.4-chi2-goodness-of-fit.html#chi2-goodness-of-fit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="4.2-z-and-t-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="4.4-non-parametric-tests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.3-likelihood-approach.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.5-non-parametric-tests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

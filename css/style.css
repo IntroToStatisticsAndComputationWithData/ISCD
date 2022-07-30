@@ -2,6 +2,8 @@
 @import url("./code.css");
 @import url("./cap.adjust.css");
 @import url("./katex.adjust.css");
+@import url("./quote.adjust.css");
+@import url("./env.adjust.css");
 
 html {
 	scroll-behavior: smooth !important;
@@ -13,6 +15,7 @@ html {
 	/* for bold faces in text */
 }
 
+.book-body div img,
 .book-body>p>img {
 	align-self: center;
 }
@@ -20,23 +23,4 @@ html {
 b {
 	color: #440154;
 	/* for section bold faces */
-}
-
-div.hypothesis {
-	padding: 2% 4%;
-	margin-bottom: 10px;
-	background-color: #b7f1ee;
-	border-radius: 10px;
-}
-
-div.hypothesis p,
-div.definition p {
-	margin-bottom: 0px !important;
-}
-
-div.definition {
-	padding: 2% 4%;
-	margin-bottom: 10px;
-	background-color: #d8e219;
-	border-radius: 10px;
 }
